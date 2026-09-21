@@ -1,0 +1,74 @@
+PROJECT REQUIREMENTS SPECIFICATION REGISTER
+Traceability Matrix & Veriﬁcation Tracking • FR-01 to FR-06 & NFR-01 to NFR-03
+TOTAL REQUIREMENTS FUNCTIONAL REQS NON-FUNCTIONAL REQS
+9 6 3
+Req ID Category Requirement Title Description & Acceptance Criteria Priority Status Target Milestone Verification Method
+FR-01
+FR-02
+FR-03
+FR-04
+FR-05
+FR-06
+NFR-01
+NFR-02
+NFR-03
+Functional
+Functional
+Functional
+Functional
+Functional
+Functional
+User Authentication & Authorization
+Role-Based Access Control (RBAC)
+Data Export & Multi-Format Reporting
+Real-Time Notification Dispatch
+Audit Logging & Activity Tracking
+Automated Backup & Point-in-Time Recovery
+Performance & API Response Latency
+System Availability & High Reliability
+Data Encryption & Regulatory Compliance
+Sprint 1 Automated Security Test
+Enforce granular permissions and access boundaries across
+Admin, Project Lead, Contributor, and Viewer roles. Sprint 1 Permission Matrix Audit
+Allow authenticated users to export datasets and ﬁltered
+project views into CSV, PDF, and XLSX formats. Sprint 2 Functional UI/API Test
+Trigger asynchronous in-app banner alerts and external email
+notiﬁcations upon task status transitions or assignments. Sprint 2 Event Dispatch Test
+Sprint 3 System Log Inspection
+Sprint 3 Disaster Recovery Drill
+Ensure 99% of API requests resolve in under 200ms under
+sustained load of 1,000 concurrent active users. Sprint 2 Load & Stress Test
+Maintain guaranteed 99.9% application uptime per calendar
+month, excluding announced scheduled maintenance. Sprint 3 SLA & Uptime Monitoring
+Enforce end-to-end data encryption using AES-256 for data at
+rest and TLS 1.3 for all in-transit communications. Sprint 1 Vulnerability Assessment
+Enable secure sign up, login via OAuth2/SSO, session token
+management, and MFA enforcement for administrative
+ t
+Maintain an immutable, queryable audit log of all record
+modiﬁcations, logins, and permission changes with UTC
+ti t
+Perform scheduled daily automated database backups with
+veriﬁed point-in-time recovery to restore state within 30
+ i t
+High
+High
+High
+Approved
+Approved
+Approved
+Approved
+Critical
+Critical
+Critical
+Critical
+In Progress
+In Progress
+Not Started
+Not Started
+In Progress
+Medium
+Medium
+Non-Functional
+Non-Functional
+Non-Functional

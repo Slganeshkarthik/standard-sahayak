@@ -1,0 +1,290 @@
+{
+  "graph_version": "2.0",
+  "description": "BIS Indian Standards Knowledge Graph - Normative, Testing, Safety, Installation & Evolution Network",
+  "nodes": {
+    "IS 12615:2018": {
+      "title": "Energy Efficient Three Phase Squirrel Cage Induction Motors",
+      "category": "Primary",
+      "status": "current",
+      "type": "Product Specification",
+      "certification": "BIS ISI Mark Mandatory under QCO"
+    },
+    "IS/IEC 60034-1:2004": {
+      "title": "Rotating Electrical Machines - Rating and Performance",
+      "category": "Primary",
+      "status": "current",
+      "type": "Performance Code",
+      "certification": "BIS Product Certification Scheme"
+    },
+    "IS 325:1996": {
+      "title": "Three-Phase Induction Motors - Specification",
+      "category": "Primary",
+      "status": "superseded",
+      "type": "Historical Specification",
+      "certification": "Superseded"
+    },
+    "IS 4029:2010": {
+      "title": "Guide for Testing Three-Phase Induction Motors",
+      "category": "Test Method",
+      "status": "current",
+      "type": "Test Code",
+      "certification": "BIS Test Code for Compliance Verification"
+    },
+    "IS/IEC 60034-5:2020": {
+      "title": "Rotating Electrical Machines - Degrees of Protection (IP Code)",
+      "category": "Safety",
+      "status": "current",
+      "type": "Safety Standard",
+      "certification": "Safety Compliance Mandate"
+    },
+    "IS 900:1992": {
+      "title": "Code of Practice for Installation and Maintenance of Induction Motors",
+      "category": "Installation",
+      "status": "current",
+      "type": "Code of Practice",
+      "certification": "GFR Engineering Mandatory Code"
+    },
+    "IS 1231:1974": {
+      "title": "Dimensions of Three-Phase Foot-Mounted Induction Motors",
+      "category": "Dimensions",
+      "status": "current",
+      "type": "Dimensional Standard",
+      "certification": "Mechanical Interchangeability"
+    },
+    "IS 2223:1983": {
+      "title": "Dimensions of Flange Mounted A.C. Induction Motors",
+      "category": "Dimensions",
+      "status": "current",
+      "type": "Dimensional Standard",
+      "certification": "Mechanical Interchangeability"
+    },
+    "IS 1786:2008": {
+      "title": "High Strength Deformed Steel Bars and Wires for Concrete Reinforcement",
+      "category": "Primary",
+      "status": "current",
+      "type": "Product Specification",
+      "certification": "BIS ISI Mark Mandatory under QCO"
+    },
+    "IS 1608 (Part 1):2022": {
+      "title": "Metallic Materials - Tensile Testing Room Temperature",
+      "category": "Test Method",
+      "status": "current",
+      "type": "Test Code",
+      "certification": "Normative Test Code"
+    },
+    "IS 1599:2019": {
+      "title": "Metallic Materials - Bend Test",
+      "category": "Test Method",
+      "status": "current",
+      "type": "Test Code",
+      "certification": "Normative Test Code"
+    },
+    "IS 269:2015": {
+      "title": "Ordinary Portland Cement 33, 43 and 53 Grade",
+      "category": "Primary",
+      "status": "current",
+      "type": "Product Specification",
+      "certification": "BIS ISI Mark Mandatory under QCO"
+    },
+    "IS 4031 (Part 6):1988": {
+      "title": "Methods of Physical Tests for Hydraulic Cement: Compressive Strength",
+      "category": "Test Method",
+      "status": "current",
+      "type": "Test Code",
+      "certification": "Normative Test Code"
+    },
+    "IS 456:2000": {
+      "title": "Plain and Reinforced Concrete - Code of Practice",
+      "category": "Installation",
+      "status": "current",
+      "type": "Code of Practice",
+      "certification": "National Building Code Mandate"
+    },
+    "IS 694:2010": {
+      "title": "PVC Insulated Cables for Working Voltages up to and Including 1100 V",
+      "category": "Primary",
+      "status": "current",
+      "type": "Product Specification",
+      "certification": "BIS ISI Mark Mandatory under QCO"
+    },
+    "IS 10810 (Part 53):2021": {
+      "title": "Methods of Test for Cables: Smoke Density and Flammability",
+      "category": "Test Method",
+      "status": "current",
+      "type": "Test Code",
+      "certification": "Fire Safety Test Code"
+    },
+    "IS 3043:2018": {
+      "title": "Code of Practice for Earthing",
+      "category": "Safety",
+      "status": "current",
+      "type": "Safety Code",
+      "certification": "CEA Safety Regulations Mandatory"
+    },
+    "IS 16107 (Part 2/Sec 2):2017": {
+      "title": "Luminaires Performance - LED Street Light Luminaires",
+      "category": "Primary",
+      "status": "current",
+      "type": "Product Specification",
+      "certification": "BIS CRS Mandatory Registration"
+    },
+    "IS 10322 (Part 5/Sec 3):2012": {
+      "title": "Luminaires for Road and Street Lighting - Safety",
+      "category": "Safety",
+      "status": "current",
+      "type": "Safety Standard",
+      "certification": "Mandatory Safety Standard"
+    },
+    "IS 8329:2000": {
+      "title": "Centrifugally Cast (Ductile) Iron Pressure Pipes for Water",
+      "category": "Primary",
+      "status": "current",
+      "type": "Product Specification",
+      "certification": "BIS ISI Mark Mandatory under QCO"
+    },
+    "IS 12288:1987": {
+      "title": "Code of Practice for Use and Laying of Ductile Iron Pipes",
+      "category": "Installation",
+      "status": "current",
+      "type": "Code of Practice",
+      "certification": "CPHEEO & Public Health Engineering Code"
+    },
+    "IS 5382:2018": {
+      "title": "Rubber Sealing Rings for Gas Mains, Water Mains and Sewers",
+      "category": "Normative",
+      "status": "current",
+      "type": "Component Standard",
+      "certification": "Mandatory Joint Component"
+    },
+    "IS 14286:2010": {
+      "title": "Crystalline Silicon Terrestrial Photovoltaic (PV) Modules",
+      "category": "Primary",
+      "status": "current",
+      "type": "Product Specification",
+      "certification": "BIS CRS Mandatory Registration"
+    },
+    "IS/IEC 61730 (Part 1 & 2):2016": {
+      "title": "Photovoltaic (PV) Module Safety Qualification",
+      "category": "Safety",
+      "status": "current",
+      "type": "Safety Standard",
+      "certification": "Mandatory Electrical Safety Qualification"
+    }
+  },
+  "relationships": [
+    {
+      "source": "IS 12615:2018",
+      "target": "IS 4029:2010",
+      "relation": "TEST_METHOD",
+      "description": "Prescribes test methods for insulation resistance, temperature rise, and efficiency loss segregation for IS 12615 motors"
+    },
+    {
+      "source": "IS 12615:2018",
+      "target": "IS/IEC 60034-5:2020",
+      "relation": "SAFETY_STANDARD",
+      "description": "Defines mandatory ingress protection enclosure degrees (IP55/IP65/IP66) and safety requirements for industrial motors"
+    },
+    {
+      "source": "IS 12615:2018",
+      "target": "IS 900:1992",
+      "relation": "INSTALLATION_STANDARD",
+      "description": "Code of practice for foundation design, alignment, earthing, commissioning, and maintenance of induction motors"
+    },
+    {
+      "source": "IS 12615:2018",
+      "target": "IS/IEC 60034-1:2004",
+      "relation": "NORMATIVE_REFERENCE",
+      "description": "Parent rating, continuous duty S1 classification, thermal insulation classes, and performance criteria"
+    },
+    {
+      "source": "IS 12615:2018",
+      "target": "IS 1231:1974",
+      "relation": "DIMENSIONS",
+      "description": "Standard foot-mounted frame sizes, shaft heights, and fixing center dimensions for interchangeability"
+    },
+    {
+      "source": "IS 12615:2018",
+      "target": "IS 2223:1983",
+      "relation": "DIMENSIONS",
+      "description": "Standard flange-mounted dimensions and spigot tolerances for pump and gear-driven motors"
+    },
+    {
+      "source": "IS 12615:2018",
+      "target": "IS 325:1996",
+      "relation": "SUPERSEDES",
+      "description": "IS 12615 energy-efficient specification supersedes the older legacy IS 325 standard"
+    },
+    {
+      "source": "IS 325:1996",
+      "target": "IS 12615:2018",
+      "relation": "SUPERSEDED_BY",
+      "description": "Superseded by IS 12615:2018 and IS/IEC 60034-1. Must not be used for new public tenders"
+    },
+    {
+      "source": "IS 1786:2008",
+      "target": "IS 1608 (Part 1):2022",
+      "relation": "TEST_METHOD",
+      "description": "Tensile testing and 0.2% proof stress determination for rebar steel"
+    },
+    {
+      "source": "IS 1786:2008",
+      "target": "IS 1599:2019",
+      "relation": "TEST_METHOD",
+      "description": "Mandatory bend and rebend test methods to verify ductility of deformed bars"
+    },
+    {
+      "source": "IS 1786:2008",
+      "target": "IS 456:2000",
+      "relation": "INSTALLATION_STANDARD",
+      "description": "Plain and reinforced concrete design code governing development length, lap splices, and cover"
+    },
+    {
+      "source": "IS 269:2015",
+      "target": "IS 4031 (Part 6):1988",
+      "relation": "TEST_METHOD",
+      "description": "Physical testing of cement mortar cubes for 3, 7, and 28-day compressive strength"
+    },
+    {
+      "source": "IS 269:2015",
+      "target": "IS 456:2000",
+      "relation": "INSTALLATION_STANDARD",
+      "description": "Governs concrete mix proportioning, water-cement ratios, and durability exposure classes"
+    },
+    {
+      "source": "IS 694:2010",
+      "target": "IS 10810 (Part 53):2021",
+      "relation": "TEST_METHOD",
+      "description": "Smoke density, acid gas emission, and flame propagation test methods for FRLS cables"
+    },
+    {
+      "source": "IS 694:2010",
+      "target": "IS 3043:2018",
+      "relation": "SAFETY_STANDARD",
+      "description": "Code of practice for earthing and circuit protective conductor sizing"
+    },
+    {
+      "source": "IS 16107 (Part 2/Sec 2):2017",
+      "target": "IS 10322 (Part 5/Sec 3):2012",
+      "relation": "SAFETY_STANDARD",
+      "description": "Mandatory electrical and mechanical safety standard for outdoor road and street luminaires"
+    },
+    {
+      "source": "IS 8329:2000",
+      "target": "IS 12288:1987",
+      "relation": "INSTALLATION_STANDARD",
+      "description": "Code of practice for trench excavation, laying, jointing, and hydrostatic field testing of DI pipes"
+    },
+    {
+      "source": "IS 8329:2000",
+      "target": "IS 5382:2018",
+      "relation": "NORMATIVE_REFERENCE",
+      "description": "Specification for elastomeric EPDM/SBR rubber gaskets for push-on socket joints"
+    },
+    {
+      "source": "IS 14286:2010",
+      "target": "IS/IEC 61730 (Part 1 & 2):2016",
+      "relation": "SAFETY_STANDARD",
+      "description": "Mandatory electrical shock and fire safety qualification standard for solar PV modules"
+    }
+  ]
+}

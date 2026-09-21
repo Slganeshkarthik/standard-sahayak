@@ -1,0 +1,273 @@
+{
+  "decisions": [
+    {
+      "id": "FB-83978",
+      "timestamp": "2026-09-19T21:31:23.978652",
+      "user_name": "Er. Priya Sharma",
+      "user_role": "Procurement Officer",
+      "tender_ref": "TENDER-2026-IND-MOTORS-9402",
+      "standard_number": "IS 11537:1985",
+      "decision": "accepted",
+      "reason": "Verified conformity with procurement technical parameters and statutory QCO orders. Standard accepted for tender.",
+      "modifications": ""
+    },
+    {
+      "id": "FB-67298",
+      "timestamp": "2026-09-19T18:09:27.298505",
+      "user_name": "Er. Priya Sharma",
+      "user_role": "Procurement Officer",
+      "tender_ref": "TENDER-2026-IND-MOTORS-9402",
+      "standard_number": "IS/IEC 60519 (Part 3):2005",
+      "decision": "accepted",
+      "reason": "Verified conformity with procurement technical parameters and statutory QCO orders. Standard accepted for tender.",
+      "modifications": ""
+    },
+    {
+      "id": "FB-19094",
+      "timestamp": "2026-09-19T18:06:59.094730",
+      "user_name": "Er. Priya Sharma",
+      "user_role": "Procurement Officer",
+      "tender_ref": "TENDER-2026-IND-MOTORS-9402",
+      "standard_number": "IS 325:1996",
+      "decision": "accepted",
+      "reason": "Verified conformity with procurement technical parameters and statutory QCO orders. Standard accepted for tender.",
+      "modifications": ""
+    },
+    {
+      "id": "FB-13436",
+      "timestamp": "2026-09-19T18:06:53.436179",
+      "user_name": "Er. Priya Sharma",
+      "user_role": "Procurement Officer",
+      "tender_ref": "TENDER-2026-IND-MOTORS-9402",
+      "standard_number": "IS 325:1996",
+      "decision": "rejected",
+      "reason": "Standard does not match the precise operating duty or is superseded. Rejected for tender clause.",
+      "modifications": ""
+    },
+    {
+      "id": "FB-75231",
+      "timestamp": "2026-09-19T18:06:15.231503",
+      "user_name": "Er. Priya Sharma",
+      "user_role": "Procurement Officer",
+      "tender_ref": "TENDER-2026-IND-MOTORS-9402",
+      "standard_number": "IS 11537:1985",
+      "decision": "accepted",
+      "reason": "Verified conformity with procurement technical parameters and statutory QCO orders. Standard accepted for tender.",
+      "modifications": ""
+    },
+    {
+      "id": "FB-70399",
+      "timestamp": "2026-09-19T18:06:10.399628",
+      "user_name": "Er. Priya Sharma",
+      "user_role": "Procurement Officer",
+      "tender_ref": "TENDER-2026-IND-MOTORS-9402",
+      "standard_number": "IS 900:1992",
+      "decision": "accepted",
+      "reason": "Verified conformity with procurement technical parameters and statutory QCO orders. Standard accepted for tender.",
+      "modifications": ""
+    },
+    {
+      "id": "FB-65183",
+      "timestamp": "2026-09-19T18:06:05.183744",
+      "user_name": "Er. Priya Sharma",
+      "user_role": "Procurement Officer",
+      "tender_ref": "TENDER-2026-IND-MOTORS-9402",
+      "standard_number": "IS/IEC 60034-5:2020",
+      "decision": "accepted",
+      "reason": "Verified conformity with procurement technical parameters and statutory QCO orders. Standard accepted for tender.",
+      "modifications": ""
+    },
+    {
+      "id": "FB-61701",
+      "timestamp": "2026-09-19T18:06:01.701722",
+      "user_name": "Er. Priya Sharma",
+      "user_role": "Procurement Officer",
+      "tender_ref": "TENDER-2026-IND-MOTORS-9402",
+      "standard_number": "IS 4029:2010",
+      "decision": "accepted",
+      "reason": "Verified conformity with procurement technical parameters and statutory QCO orders. Standard accepted for tender.",
+      "modifications": ""
+    },
+    {
+      "id": "FB-58137",
+      "timestamp": "2026-09-19T18:05:58.137948",
+      "user_name": "Er. Priya Sharma",
+      "user_role": "Procurement Officer",
+      "tender_ref": "TENDER-2026-IND-MOTORS-9402",
+      "standard_number": "IS/IEC 60034-1:2004",
+      "decision": "accepted",
+      "reason": "Verified conformity with procurement technical parameters and statutory QCO orders. Standard accepted for tender.",
+      "modifications": ""
+    },
+    {
+      "id": "FB-54788",
+      "timestamp": "2026-09-19T18:05:54.788257",
+      "user_name": "Er. Priya Sharma",
+      "user_role": "Procurement Officer",
+      "tender_ref": "TENDER-2026-IND-MOTORS-9402",
+      "standard_number": "IS 12615:2018",
+      "decision": "accepted",
+      "reason": "Verified conformity with procurement technical parameters and statutory QCO orders. Standard accepted for tender.",
+      "modifications": ""
+    },
+    {
+      "id": "FB-50674",
+      "timestamp": "2026-09-19T18:05:50.674770",
+      "user_name": "Er. Priya Sharma",
+      "user_role": "Procurement Officer",
+      "tender_ref": "TENDER-2026-IND-MOTORS-9402",
+      "standard_number": "IS 12615:2018",
+      "decision": "accepted",
+      "reason": "Verified conformity with procurement technical parameters and statutory QCO orders. Standard accepted for tender.",
+      "modifications": ""
+    },
+    {
+      "id": "FB-26063",
+      "timestamp": "2026-09-19T17:53:46.063835",
+      "user_name": "Er. Priya Sharma",
+      "user_role": "Procurement Officer",
+      "tender_ref": "TENDER-2026-IND-MOTORS-9402",
+      "standard_number": "IS 12615:2018",
+      "decision": "accepted",
+      "reason": "Verified conformity with procurement technical parameters and statutory QCO orders. Standard accepted for tender.",
+      "modifications": ""
+    },
+    {
+      "id": "FB-48477",
+      "timestamp": "2026-09-19T17:37:28.477501",
+      "user_name": "Er. Priya Sharma",
+      "user_role": "Procurement Officer",
+      "tender_ref": "TENDER-2026-MOTOR-01",
+      "standard_number": "IS 12615:2018",
+      "decision": "accepted",
+      "reason": "Directly meets 415V 50Hz 3-phase IE3 motor requirements.",
+      "modifications": null
+    },
+    {
+      "id": "FB-1001",
+      "timestamp": "2026-09-18T10:35:20",
+      "user_name": "Er. Priya Sharma",
+      "user_role": "Procurement Officer",
+      "tender_ref": "TENDER-2026-IND-042",
+      "standard_number": "IS 12615:2018",
+      "decision": "accepted",
+      "reason": "Directly matches line-operated 3-phase squirrel cage induction motor requirements with IE3 efficiency. Complies with Electrical Motors QCO.",
+      "modifications": null
+    },
+    {
+      "id": "FB-1002",
+      "timestamp": "2026-09-18T10:36:05",
+      "user_name": "Er. Priya Sharma",
+      "user_role": "Procurement Officer",
+      "tender_ref": "TENDER-2026-IND-042",
+      "standard_number": "IS 325:1996",
+      "decision": "rejected",
+      "reason": "Superseded standard; rejected in favour of current energy efficient code IS 12615:2018.",
+      "modifications": "Replaced with IS 12615:2018"
+    }
+  ],
+  "audit_trail": [
+    {
+      "timestamp": "2026-09-19 21:31:23",
+      "user": "Er. Priya Sharma (Procurement Officer)",
+      "action": "ACCEPTED_STANDARD",
+      "details": "Officer accepted IS 11537:1985: \"Verified conformity with procurement technical parameters and statutory QCO orders. Standard accepted for tender.\""
+    },
+    {
+      "timestamp": "2026-09-19 18:09:27",
+      "user": "Er. Priya Sharma (Procurement Officer)",
+      "action": "ACCEPTED_STANDARD",
+      "details": "Officer accepted IS/IEC 60519 (Part 3):2005: \"Verified conformity with procurement technical parameters and statutory QCO orders. Standard accepted for tender.\""
+    },
+    {
+      "timestamp": "2026-09-19 18:06:59",
+      "user": "Er. Priya Sharma (Procurement Officer)",
+      "action": "ACCEPTED_STANDARD",
+      "details": "Officer accepted IS 325:1996: \"Verified conformity with procurement technical parameters and statutory QCO orders. Standard accepted for tender.\""
+    },
+    {
+      "timestamp": "2026-09-19 18:06:53",
+      "user": "Er. Priya Sharma (Procurement Officer)",
+      "action": "REJECTED_STANDARD",
+      "details": "Officer rejected IS 325:1996: \"Standard does not match the precise operating duty or is superseded. Rejected for tender clause.\""
+    },
+    {
+      "timestamp": "2026-09-19 18:06:15",
+      "user": "Er. Priya Sharma (Procurement Officer)",
+      "action": "ACCEPTED_STANDARD",
+      "details": "Officer accepted IS 11537:1985: \"Verified conformity with procurement technical parameters and statutory QCO orders. Standard accepted for tender.\""
+    },
+    {
+      "timestamp": "2026-09-19 18:06:10",
+      "user": "Er. Priya Sharma (Procurement Officer)",
+      "action": "ACCEPTED_STANDARD",
+      "details": "Officer accepted IS 900:1992: \"Verified conformity with procurement technical parameters and statutory QCO orders. Standard accepted for tender.\""
+    },
+    {
+      "timestamp": "2026-09-19 18:06:05",
+      "user": "Er. Priya Sharma (Procurement Officer)",
+      "action": "ACCEPTED_STANDARD",
+      "details": "Officer accepted IS/IEC 60034-5:2020: \"Verified conformity with procurement technical parameters and statutory QCO orders. Standard accepted for tender.\""
+    },
+    {
+      "timestamp": "2026-09-19 18:06:01",
+      "user": "Er. Priya Sharma (Procurement Officer)",
+      "action": "ACCEPTED_STANDARD",
+      "details": "Officer accepted IS 4029:2010: \"Verified conformity with procurement technical parameters and statutory QCO orders. Standard accepted for tender.\""
+    },
+    {
+      "timestamp": "2026-09-19 18:05:58",
+      "user": "Er. Priya Sharma (Procurement Officer)",
+      "action": "ACCEPTED_STANDARD",
+      "details": "Officer accepted IS/IEC 60034-1:2004: \"Verified conformity with procurement technical parameters and statutory QCO orders. Standard accepted for tender.\""
+    },
+    {
+      "timestamp": "2026-09-19 18:05:54",
+      "user": "Er. Priya Sharma (Procurement Officer)",
+      "action": "ACCEPTED_STANDARD",
+      "details": "Officer accepted IS 12615:2018: \"Verified conformity with procurement technical parameters and statutory QCO orders. Standard accepted for tender.\""
+    },
+    {
+      "timestamp": "2026-09-19 18:05:50",
+      "user": "Er. Priya Sharma (Procurement Officer)",
+      "action": "ACCEPTED_STANDARD",
+      "details": "Officer accepted IS 12615:2018: \"Verified conformity with procurement technical parameters and statutory QCO orders. Standard accepted for tender.\""
+    },
+    {
+      "timestamp": "2026-09-19 17:53:46",
+      "user": "Er. Priya Sharma (Procurement Officer)",
+      "action": "ACCEPTED_STANDARD",
+      "details": "Officer accepted IS 12615:2018: \"Verified conformity with procurement technical parameters and statutory QCO orders. Standard accepted for tender.\""
+    },
+    {
+      "timestamp": "2026-09-19 17:37:28",
+      "user": "Er. Priya Sharma (Procurement Officer)",
+      "action": "ACCEPTED_STANDARD",
+      "details": "Officer accepted IS 12615:2018: \"Directly meets 415V 50Hz 3-phase IE3 motor requirements.\""
+    },
+    {
+      "timestamp": "2026-09-18 10:30:15",
+      "user": "Er. Priya Sharma (Procurement Officer)",
+      "action": "UPLOAD_TENDER",
+      "details": "Uploaded Motor_Procurement_Spec.docx containing 415V 50Hz 3-phase motor specifications."
+    },
+    {
+      "timestamp": "2026-09-18 10:31:02",
+      "user": "System (AI Engine)",
+      "action": "RAG_RECOMMENDATION",
+      "details": "Generated 5 recommendations: IS 12615:2018 (High), IS/IEC 60034-1:2004 (High), IS 4029:2010 (Test), IS/IEC 60034-5 (Safety), IS 900 (Installation). Detected superseded standard IS 325:1996."
+    },
+    {
+      "timestamp": "2026-09-18 10:35:20",
+      "user": "Er. Priya Sharma (Procurement Officer)",
+      "action": "ACCEPT_STANDARD",
+      "details": "Officer accepted IS 12615:2018 with QCO compliance endorsement."
+    },
+    {
+      "timestamp": "2026-09-18 10:36:05",
+      "user": "Er. Priya Sharma (Procurement Officer)",
+      "action": "REJECT_OUTDATED_STANDARD",
+      "details": "Officer rejected superseded IS 325:1996 based on AI defect alert."
+    }
+  ]
+}

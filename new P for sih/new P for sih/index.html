@@ -1,0 +1,1036 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="AI-Powered Indian Standards (BIS) Intelligence Engine for Public Procurement — Standards Sahayak (SIH26108)"
+    />
+    <meta name="keywords" content="BIS, Indian Standards, IS 12615, IS 1786, Procurement, GeM, Tender Intelligence, Standards Sahayak" />
+    <title>Standards Sahayak — AI-Powered Indian Standards Intelligence Engine (SIH26108)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Authentication & Account Creation Overlay -->
+    <div id="loginOverlay" class="login-overlay" role="dialog" aria-modal="true" aria-label="Sign in or create an account">
+      <div class="login-card auth-modal-card">
+        <div class="login-brand" style="display: flex; justify-content: space-between; align-items: center;">
+          <div style="display: flex; gap: 14px; align-items: center;">
+            <div class="brand-mark large">IS</div>
+            <div>
+              <strong data-i18n="app_title">Standards Sahayak</strong>
+              <span data-i18n="app_subtitle">AI-Powered BIS Procurement Intelligence</span>
+            </div>
+          </div>
+          <select class="global-lang-selector header-lang-select" onchange="applyLanguage(this.value)" title="Choose Language / ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ">
+            <option value="en-IN">🇬🇧 English</option>
+            <option value="kn-IN">🇮🇳 ಕನ್ನಡ (Kannada)</option>
+            <option value="hi-IN">🇮🇳 हिन्दी (Hindi)</option>
+            <option value="ta-IN">🇮🇳 தமிழ் (Tamil)</option>
+            <option value="te-IN">🇮🇳 తెలుగు (Telugu)</option>
+            <option value="mr-IN">🇮🇳 मराठी (Marathi)</option>
+            <option value="bn-IN">🇮🇳 বাংলা (Bengali)</option>
+            <option value="gu-IN">🇮🇳 ગુજરાતી (Gujarati)</option>
+          </select>
+        </div>
+
+        <!-- Auth Tabs: Sign In / Create Account -->
+        <div class="auth-tabs" role="tablist">
+          <button class="auth-tab active" id="tabSignIn" role="tab" aria-selected="true" data-i18n="auth_signin_tab">🔐 Sign In</button>
+          <button class="auth-tab" id="tabRegister" role="tab" aria-selected="false" data-i18n="auth_register_tab">📝 Create Account</button>
+        </div>
+
+        <!-- Sign In Form -->
+        <div class="login-form auth-tab-content" id="signInForm">
+          <!-- Quick Demo Account Switcher -->
+          <div class="demo-accounts-bar" style="margin-bottom: 12px; padding: 8px 10px; background: var(--teal-light); border-radius: 8px; font-size: 0.76rem;">
+            <span style="font-weight: 700; color: var(--teal); display: block; margin-bottom: 4px;">⚡ Quick Demo Accounts:</span>
+            <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+              <button type="button" class="chip" style="font-size: 0.72rem; padding: 2px 7px;" onclick="fillDemoUser('priya.sharma@gem.gov.in', 'Password@123', 'Procurement Officer')">Procurement (Priya)</button>
+              <button type="button" class="chip" style="font-size: 0.72rem; padding: 2px 7px;" onclick="fillDemoUser('anil.sharma@bis.gov.in', 'Password@123', 'Standards Administrator')">Standards (Dr. Anil)</button>
+              <button type="button" class="chip" style="font-size: 0.72rem; padding: 2px 7px;" onclick="fillDemoUser('admin@nic.in', 'Password@123', 'System Administrator')">System Admin</button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="loginEmail">Email / Government ID *</label>
+            <input id="loginEmail" type="email" value="priya.sharma@gem.gov.in" placeholder="name@agency.gov.in" autocomplete="email" required />
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password *</label>
+            <input id="loginPassword" type="password" value="Password@123" placeholder="Enter your password" autocomplete="current-password" required />
+          </div>
+          <div class="form-group">
+            <label for="loginRole">Select Access Role</label>
+            <select id="loginRole" class="auth-select">
+              <option value="Procurement Officer">Procurement Officer (Tender Workspace &amp; RAG)</option>
+              <option value="Standards Administrator">Standards Administrator (BIS Knowledge Base)</option>
+              <option value="System Administrator">System Administrator (System &amp; RBAC)</option>
+            </select>
+          </div>
+          <button class="primary-button full-width" id="loginButton" type="button">
+            <span class="btn-icon">🔐</span> Sign In to Standards Sahayak
+          </button>
+        </div>
+
+        <!-- Create Account Form -->
+        <div class="login-form auth-tab-content" id="registerForm" style="display:none">
+          <div class="form-row two-col-form">
+            <div class="form-group">
+              <label for="regName">Full Name *</label>
+              <input id="regName" type="text" placeholder="e.g. Er. Rajesh Kumar" required />
+            </div>
+            <div class="form-group">
+              <label for="regEmail">Official Email *</label>
+              <input id="regEmail" type="email" placeholder="rajesh.kumar@cpwd.gov.in" required />
+            </div>
+          </div>
+          <div class="form-row two-col-form">
+            <div class="form-group">
+              <label for="regOrg">Organization / Dept *</label>
+              <input id="regOrg" type="text" placeholder="e.g. CPWD / Indian Railways / L&amp;T Infra" required />
+            </div>
+            <div class="form-group">
+              <label for="regDesignation">Designation</label>
+              <input id="regDesignation" type="text" placeholder="e.g. Executive Engineer / Bid Manager" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="regRole">Assign System Role *</label>
+            <select id="regRole" class="auth-select">
+              <option value="Procurement Officer">Procurement Officer (Draft specs, AI RAG, GeM clause)</option>
+              <option value="Standards Administrator">Standards Administrator (Manage BIS knowledge base &amp; graph)</option>
+              <option value="System Administrator">System Administrator (Manage users, DB, SLA)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="regPassword">Create Password (min 6 characters) *</label>
+            <input id="regPassword" type="password" placeholder="Enter secure password" required />
+          </div>
+          <button class="primary-button full-width" id="registerButton" type="button">
+            <span class="btn-icon">✅</span> Create Account &amp; Enter Platform
+          </button>
+        </div>
+
+        <div class="login-meta">
+          <span class="badge-secure">🔒 Hashed &amp; Verified Security</span>
+          <span class="badge-secure">Govt. of India NIC SSO &amp; GFR 2017</span>
+        </div>
+      </div>
+      <div class="login-decoration" aria-hidden="true">
+        <div class="deco-circle c1"></div>
+        <div class="deco-circle c2"></div>
+        <div class="deco-circle c3"></div>
+      </div>
+    </div>
+
+    <!-- Human-in-the-Loop Feedback Modal -->
+    <div id="feedbackModal" class="modal-overlay" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="fbModalTitle">
+      <div class="modal-card">
+        <div class="modal-header">
+          <div>
+            <span class="eyebrow" id="fbModalEyebrow">Procurement Officer Review</span>
+            <h3 id="fbModalTitle">Review Recommendation: <span id="fbModalStdId">IS 12615:2018</span></h3>
+          </div>
+          <button class="icon-button" id="closeFeedbackModal" aria-label="Close modal">✕</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Decision Action</label>
+            <div class="decision-selector">
+              <button type="button" class="dec-btn accept active" data-decision="accepted">✓ Accept Standard</button>
+              <button type="button" class="dec-btn reject" data-decision="rejected">✕ Reject Standard</button>
+              <button type="button" class="dec-btn edit" data-decision="edited">✎ Modify Specification</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fbReasonInput">Justification &amp; Audit Rationale *</label>
+            <textarea id="fbReasonInput" rows="3" placeholder="Enter technical reason for this decision (e.g. 'Covers 415V 50Hz 3-phase IE3 energy efficiency requirements under Electrical Motors QCO')."></textarea>
+          </div>
+          <div class="form-group" id="fbModSection" style="display:none;">
+            <label for="fbModInput">Suggested Specification Modification / Alternative Standard</label>
+            <input type="text" id="fbModInput" placeholder="e.g. Specify IS 12615:2018 with IE4 efficiency class instead" />
+          </div>
+          <div class="modal-meta-box">
+            <span>👤 Reviewer: <strong id="fbModalUser">Er. Priya Sharma (Procurement Officer)</strong></span>
+            <span>⏱️ Timestamp: <strong id="fbModalTime">Live Recording</strong></span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="secondary-button" id="cancelFeedbackBtn">Cancel</button>
+          <button type="button" class="primary-button" id="submitFeedbackBtn">💾 Record Decision in Audit Log</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="toast-container" aria-live="polite" aria-label="Notifications"></div>
+
+    <!-- Main App Shell -->
+    <div class="app-shell" id="appShell" style="display:none">
+      <!-- Sidebar -->
+      <aside class="sidebar" aria-label="Primary navigation">
+        <div class="brand">
+          <div class="brand-mark">IS</div>
+          <div>
+            <strong>Standards Sahayak</strong>
+            <span>Procurement Intelligence</span>
+          </div>
+        </div>
+        <nav aria-label="Sections">
+          <a href="#lookup" class="nav-link active" id="navLookupLink">
+            <span class="nav-icon">🔍</span> <span data-i18n="nav_tender_specs">Tender Specs</span>
+            <span class="nav-badge" id="navBadgeLookup" style="display:none"></span>
+          </a>
+          <a href="#results" class="nav-link" id="navResultsLink">
+            <span class="nav-icon">📋</span> <span data-i18n="nav_standards">Standards</span>
+            <span class="nav-badge" id="navBadgeResults">6</span>
+          </a>
+          <a href="#graph" class="nav-link" id="navGraphLink">
+            <span class="nav-icon">🕸</span> <span data-i18n="nav_dependency_map">Dependency Map</span>
+          </a>
+          <a href="#" class="nav-link" id="navChatbotLink" onclick="toggleChatbot(event)">
+            <span class="nav-icon">💬</span> <span data-i18n="nav_ai_assistant">AI Assistant</span>
+            <span class="nav-badge new" id="navBadgeChatbot">NEW</span>
+          </a>
+          <a href="#stdsMgmtSection" class="nav-link" id="navStdsMgmtLink" style="display:none;">
+            <span class="nav-icon">🗂</span> <span data-i18n="nav_stds_mgmt">Standards Mgmt</span>
+          </a>
+          <a href="#audit" class="nav-link" id="navAuditLink">
+            <span class="nav-icon">📜</span> <span data-i18n="nav_audit_trail">Audit Trail</span>
+            <span class="nav-badge" id="navBadgeAudit">4</span>
+          </a>
+          <a href="#admin" class="nav-link" id="navAdminLink" style="display: none;">
+            <span class="nav-icon">⚙️</span> <span data-i18n="nav_admin">Admin</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-divider"></div>
+
+        <div class="role-card">
+          <label for="role" data-i18n="sidebar_role_label">Active Role (RBAC)</label>
+          <select id="role">
+            <option value="Procurement Officer" data-i18n="role_officer">Procurement Officer</option>
+            <option value="Standards Administrator" data-i18n="role_stds_admin">Standards Administrator</option>
+            <option value="System Administrator" data-i18n="role_sys_admin">System Administrator</option>
+          </select>
+          <p id="roleHelp" data-i18n="role_officer_help">Primary Workspace: Draft specs, run AI RAG, accept/reject &amp; generate GeM clauses</p>
+        </div>
+
+        <!-- Global Language Selector in Sidebar -->
+        <div class="lang-selector-sidebar-wrap" style="padding: 10px 12px; background: rgba(255,255,255,0.06); border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.1);">
+          <label style="display: block; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; color: #7ab8b0; margin-bottom: 6px;">🌐 Language / ಭಾಷೆ</label>
+          <select class="global-lang-selector sidebar-lang-select" onchange="applyLanguage(this.value)" style="width: 100%; padding: 8px 10px; border-radius: var(--radius-sm); background: #071513; color: #5eead4; border: 1px solid rgba(94, 234, 212, 0.4); font-weight: 700; font-size: 0.85rem;">
+            <option value="en-IN">🇬🇧 English</option>
+            <option value="kn-IN">🇮🇳 ಕನ್ನಡ (Kannada)</option>
+            <option value="hi-IN">🇮🇳 हिन्दी (Hindi)</option>
+            <option value="ta-IN">🇮🇳 தமிழ் (Tamil)</option>
+            <option value="te-IN">🇮🇳 తెలుగు (Telugu)</option>
+            <option value="mr-IN">🇮🇳 मराठी (Marathi)</option>
+            <option value="bn-IN">🇮🇳 বাংলা (Bengali)</option>
+            <option value="gu-IN">🇮🇳 ગુજરાતી (Gujarati)</option>
+          </select>
+        </div>
+
+        <div class="theme-toggle-wrap">
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+            <span id="themeIcon">🌙</span>
+            <span id="themeLabel" data-i18n="theme_dark">Dark mode</span>
+          </button>
+        </div>
+
+        <div class="sidebar-footer">
+          <div class="user-chip">
+            <div class="user-avatar" id="sidebarAvatar">PO</div>
+            <div>
+              <strong id="sidebarUserName">Er. Priya Sharma</strong>
+              <span id="sidebarUserEmail">priya.sharma@gem.gov.in</span>
+            </div>
+          </div>
+          <button class="logout-btn" id="logoutButton" aria-label="Sign out" data-i18n="btn_sign_out">↩ Sign out</button>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main id="mainContent">
+
+        <!-- Hero Section -->
+        <header class="hero" aria-label="Hero">
+          <div class="hero-particles" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+          </div>
+          <div class="hero-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+              <p class="eyebrow" data-i18n="hero_eyebrow" style="margin: 0;">🇮🇳 AI-Powered Indian Standards Intelligence Engine (SIH26108)</p>
+              <div class="hero-lang-wrap" style="display: flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.3); padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.15);">
+                <span style="font-size: 0.78rem; font-weight: 700; color: #5eead4;">🌐</span>
+                <select class="global-lang-selector hero-lang-select" onchange="applyLanguage(this.value)" style="background: transparent; color: #fff; border: none; font-weight: 700; font-size: 0.82rem; cursor: pointer;">
+                  <option value="en-IN" style="background:#071513">🇬🇧 English</option>
+                  <option value="kn-IN" style="background:#071513">🇮🇳 ಕನ್ನಡ (Kannada)</option>
+                  <option value="hi-IN" style="background:#071513">🇮🇳 हिन्दी (Hindi)</option>
+                  <option value="ta-IN" style="background:#071513">🇮🇳 தமிழ் (Tamil)</option>
+                  <option value="te-IN" style="background:#071513">🇮🇳 తెలుగు (Telugu)</option>
+                  <option value="mr-IN" style="background:#071513">🇮🇳 मराठी (Marathi)</option>
+                  <option value="bn-IN" style="background:#071513">🇮🇳 বাংলা (Bengali)</option>
+                  <option value="gu-IN" style="background:#071513">🇮🇳 ગુજરાતી (Gujarati)</option>
+                </select>
+              </div>
+            </div>
+            <h1 data-i18n="hero_title">Explainable &amp; Traceable Indian Standards for Public Procurement.</h1>
+            <p class="hero-copy" data-i18n="hero_copy">
+              Converts unstructured tender specifications into ranked, verified Indian Standards with
+              normative dependency maps, latest revision checks, Quality Control Order (QCO) compliance,
+              and automated tender defect intelligence.
+            </p>
+            <div class="hero-actions">
+              <button class="primary-button" id="runPipeline">
+                <span>▶</span> <span data-i18n="hero_btn_run">Run Intelligence Engine</span>
+              </button>
+              <button class="secondary-button" id="toggleDetails" data-i18n="hero_btn_hide_details">Hide details</button>
+            </div>
+          </div>
+          <div class="hero-panel" aria-label="System readiness">
+            <div class="metric green">
+              <span data-i18n="hero_metric_indexed">Standards Indexed</span>
+              <strong id="heroStandardsCount">13,335+</strong>
+            </div>
+            <div class="metric blue">
+              <span data-i18n="hero_metric_curated">Curated Core Standards</span>
+              <strong data-i18n="hero_metric_active">Active</strong>
+            </div>
+            <div class="metric green">
+              <span data-i18n="hero_metric_qco">QCO Compliance</span>
+              <strong>100%</strong>
+            </div>
+            <div class="metric amber">
+              <span data-i18n="hero_metric_audit">Audit Trail</span>
+              <strong data-i18n="hero_metric_immutable">Immutable</strong>
+            </div>
+          </div>
+        </header>
+
+        <!-- Project Lifecycle State Machine Bar -->
+        <section class="surface lifecycle-bar" aria-label="Procurement Project State Machine" id="projectLifecycleBar">
+          <div class="lifecycle-header">
+            <div class="project-info">
+              <span class="project-id-badge">📁 Tender #GEM-2026-IND-MOTORS-9402</span>
+              <strong id="activeProjectTitle">Procurement of 100 Three-Phase Induction Motors (415V, 50Hz, IE3)</strong>
+              <span class="project-dept-tag" id="activeProjectDept">Ministry of Heavy Industries / CPWD</span>
+            </div>
+            <div class="lifecycle-actions" id="lifecycleActions">
+              <button class="compact-btn" id="btnSubmitForReview" data-i18n="btn_submit_review">🔬 Submit for Tech Review</button>
+              <button class="primary-button compact-btn" id="btnFinalizeAndPublish" data-i18n="btn_finalize_publish">🚀 Finalize &amp; Publish on GeM</button>
+            </div>
+          </div>
+          <div class="stepper-track" role="navigation" aria-label="Project stages">
+            <div class="step-node done" data-step="draft">
+              <span class="step-dot">1</span>
+              <span class="step-name" data-i18n="stage_draft">Draft</span>
+            </div>
+            <div class="step-connector done"></div>
+            <div class="step-node active" data-step="ai_analysis">
+              <span class="step-dot">2</span>
+              <span class="step-name" data-i18n="stage_ai_analysis">AI Analysis</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step-node" data-step="officer_review">
+              <span class="step-dot">3</span>
+              <span class="step-name" data-i18n="stage_officer_review">Officer Review</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step-node" data-step="tech_review">
+              <span class="step-dot">4</span>
+              <span class="step-name" data-i18n="stage_tech_review">Tech Review</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step-node" data-step="published">
+              <span class="step-dot">5</span>
+              <span class="step-name" data-i18n="stage_published">Published (GeM)</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step-node" data-step="compliance_review">
+              <span class="step-dot">6</span>
+              <span class="step-name" data-i18n="stage_compliance_review">Compliance Verified</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Lookup & Multi-Format Input Section -->
+        <section id="lookup" class="section-grid two-col" aria-labelledby="lookupHeading">
+          <div class="surface input-panel">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow" data-i18n="input_eyebrow">Input Intelligence</p>
+                <h2 id="lookupHeading" data-i18n="input_heading">Tender Specification Workspace</h2>
+              </div>
+            </div>
+
+            <!-- Input Format Mode Tabs (Feature 1) -->
+            <div class="input-mode-tabs" role="tablist">
+              <button class="input-mode-tab active" data-tab="natural" data-i18n="tab_natural">💬 Natural / Tender Query</button>
+              <button class="input-mode-tab" data-tab="structured" data-i18n="tab_structured">⚙️ Structured Spec Form</button>
+              <button class="input-mode-tab" data-tab="document" data-i18n="tab_document">📄 Tender Document Upload</button>
+              <button class="input-mode-tab" data-tab="multilingual" data-i18n="tab_multilingual">🌐 Multilingual Query</button>
+            </div>
+
+            <!-- Quick Sample Tenders Row -->
+            <div class="sample-queries-row" aria-label="Quick sample tenders">
+              <span class="sample-label" data-i18n="sample_label">⚡ Benchmark Samples:</span>
+              <button type="button" class="chip sample-chip benchmark active" data-sample="motor" data-i18n="sample_motor">⚡ 3-Phase Induction Motors (Benchmark)</button>
+              <button type="button" class="chip sample-chip" data-sample="outdated_motor" data-i18n="sample_outdated_motor">⚠️ Legacy Motor (IS 325 Defect Test)</button>
+              <button type="button" class="chip sample-chip" data-sample="led" data-i18n="sample_led">💡 LED Street Lighting</button>
+              <button type="button" class="chip sample-chip" data-sample="tmt" data-i18n="sample_tmt">🏗️ TMT Rebars (Fe 500D)</button>
+              <button type="button" class="chip sample-chip" data-sample="cement" data-i18n="sample_cement">🧱 OPC 43/53 Cement</button>
+              <button type="button" class="chip sample-chip" data-sample="cables" data-i18n="sample_cables">⚡ Heavy Duty Cables</button>
+              <button type="button" class="chip sample-chip" data-sample="pipes" data-i18n="sample_pipes">💧 DI Pressure Pipes</button>
+              <button type="button" class="chip sample-chip" data-sample="solar" data-i18n="sample_solar">☀️ Rooftop Solar PV</button>
+            </div>
+
+            <!-- TAB 1: Natural Language Query -->
+            <div class="input-tab-content active" id="tabContentNatural">
+              <textarea
+                id="queryInput"
+                aria-label="Tender or product specification input"
+                rows="5"
+                placeholder="Paste your tender specification, technical requirements, or product description here..."
+              >Supply of 100 three-phase squirrel cage induction motors, 415V, 50Hz, suitable for industrial applications, with minimum efficiency requirements and appropriate safety provisions.</textarea>
+            </div>
+
+            <!-- TAB 2: Structured Technical Specification Form (Feature 1.C & 3) -->
+            <div class="input-tab-content" id="tabContentStructured" style="display:none;">
+              <div class="structured-form-grid">
+                <div class="form-group">
+                  <label for="formProduct" data-i18n="form_product">Product Designation *</label>
+                  <input type="text" id="formProduct" value="Three-Phase Squirrel Cage Induction Motor" placeholder="e.g. Induction Motor, TMT Rebar, Cement" />
+                </div>
+                <div class="form-group">
+                  <label for="formVoltage" data-i18n="form_voltage">Operating Voltage</label>
+                  <input type="text" id="formVoltage" value="415V" placeholder="e.g. 415V, 11kV, 230V" />
+                </div>
+                <div class="form-group">
+                  <label for="formFrequency" data-i18n="form_frequency">Frequency</label>
+                  <input type="text" id="formFrequency" value="50 Hz" placeholder="e.g. 50 Hz" />
+                </div>
+                <div class="form-group">
+                  <label for="formPhase" data-i18n="form_phase">Phase</label>
+                  <select id="formPhase">
+                    <option value="3 Phase" selected>3 Phase (Three-Phase AC)</option>
+                    <option value="Single Phase">Single Phase (1 Phase)</option>
+                    <option value="DC">Direct Current (DC)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="formPower" data-i18n="form_power">Power Rating</label>
+                  <input type="text" id="formPower" value="15 kW" placeholder="e.g. 15 kW, 75 kW, 100 HP" />
+                </div>
+                <div class="form-group">
+                  <label for="formEfficiency" data-i18n="form_efficiency">Efficiency Class</label>
+                  <select id="formEfficiency">
+                    <option value="IE3 (Premium Efficiency as per IS 12615)" selected>IE3 (Premium Efficiency)</option>
+                    <option value="IE4 (Super Premium Efficiency)">IE4 (Super Premium Efficiency)</option>
+                    <option value="IE2 (High Efficiency)">IE2 (High Efficiency)</option>
+                    <option value="Standard">Standard Commercial</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="formProtection" data-i18n="form_protection">Ingress Protection (IP)</label>
+                  <select id="formProtection">
+                    <option value="IP55 (Dust &amp; Water Jet Protected)" selected>IP55 (Dust &amp; Water Jet Protected)</option>
+                    <option value="IP65 (Dust Tight / Water Jets)">IP65 (Dust Tight / Water Jets)</option>
+                    <option value="IP66 (Dust Tight / Heavy Seas)">IP66 (Dust Tight / Heavy Seas)</option>
+                    <option value="IP54 (Splash Proof)">IP54 (Splash Proof)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="formApplication" data-i18n="form_application">Application Domain</label>
+                  <input type="text" id="formApplication" value="Industrial continuous duty drives and pumps" placeholder="e.g. Industrial pumps, Municipal Lighting" />
+                </div>
+              </div>
+              <button type="button" class="secondary-button full-width" id="btnApplyStructuredForm" style="margin-top:10px;" data-i18n="btn_apply_form">
+                🔄 Populate Specification from Form
+              </button>
+            </div>
+
+            <!-- TAB 3: Document Upload (PDF / DOCX) (Feature 1.D & 1.E) -->
+            <div class="input-tab-content" id="tabContentDocument" style="display:none;">
+              <div class="upload-zone" id="uploadZone">
+                <div class="upload-icon">📁</div>
+                <div>
+                  <strong data-i18n="upload_title">Upload Tender Document (PDF or DOCX)</strong>
+                  <p id="fileName" data-i18n="upload_sub">Drag and drop tender file (.pdf, .docx, .txt) or click Attach file below</p>
+                  <div class="supported-badges">
+                    <span class="badge-mini">PDF (PyMuPDF)</span>
+                    <span class="badge-mini">DOCX (python-docx)</span>
+                    <span class="badge-mini">Table &amp; Section Mining</span>
+                  </div>
+                </div>
+                <label class="file-button" for="fileInput">
+                  <span data-i18n="btn_select_doc">📎 Select Document</span>
+                  <input id="fileInput" type="file" accept=".pdf,.doc,.docx,.txt" />
+                </label>
+              </div>
+            </div>
+
+            <!-- TAB 4: Multilingual Query (Feature 11) -->
+            <div class="input-tab-content" id="tabContentMultilingual" style="display:none;">
+              <div class="multi-lang-picker">
+                <span class="lang-label">Select Language:</span>
+                <button type="button" class="lang-btn" data-lang-preset="hi">हिन्दी (Hindi)</button>
+                <button type="button" class="lang-btn" data-lang-preset="kn">ಕನ್ನಡ (Kannada)</button>
+                <button type="button" class="lang-btn" data-lang-preset="te">తెలుగు (Telugu)</button>
+                <button type="button" class="lang-btn" data-lang-preset="ta">தமிழ் (Tamil)</button>
+                <button type="button" class="lang-btn" data-lang-preset="mr">मराठी (Marathi)</button>
+              </div>
+              <p class="lang-help-text">Directly enter specifications in your regional language. The cross-lingual engine detects the script, normalizes technical entities, and retrieves the corresponding Indian Standards.</p>
+            </div>
+
+            <!-- Live Specification & Translation Preview -->
+            <div class="translation-box" id="translationBox">
+              <div class="translation-header">
+                <span id="translationLabel" data-i18n="translation_preview_label">🌐 Live Specification &amp; Language Detection Preview</span>
+                <span id="detectedLangTag" class="lang-tag">English</span>
+              </div>
+              <p id="translationText">Supply of 100 three-phase squirrel cage induction motors, 415V, 50Hz, suitable for industrial applications, with minimum efficiency requirements and appropriate safety provisions.</p>
+            </div>
+
+            <div class="input-actions-row">
+              <button type="button" class="compact-btn" id="clearQueryBtn" data-i18n="btn_clear_workspace">🗑️ Clear workspace</button>
+              <button type="button" class="primary-button compact-btn" id="analyzeQueryBtn" data-i18n="btn_run_engine"><span>⚡</span> Run Recommendation Engine</button>
+            </div>
+          </div>
+
+          <!-- Pipeline Animation Track -->
+          <div class="surface pipeline-panel">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">End-to-End Execution</p>
+                <h2 id="stageTitle">Ready with latest run</h2>
+              </div>
+              <span class="progress-number" id="progressNumber">100%</span>
+            </div>
+            <div class="progress-track" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="Pipeline progress">
+              <div id="progressBar" style="width:100%"></div>
+            </div>
+            <div class="stage-list" id="stageList"></div>
+          </div>
+        </section>
+
+        <!-- Tender Defect & Compliance Intelligence Alert Center (Feature 13, 14, 15) -->
+        <section id="tenderDefectSection" class="surface defect-alert-section" aria-label="Tender Defect and Intelligence Alerts" style="display:none;">
+          <div class="defect-header">
+            <div class="defect-title-wrap">
+              <span class="defect-badge-icon">🛡️</span>
+              <div>
+                <strong id="defectHeaderTitle" data-i18n="defect_title">Tender Intelligence &amp; Risk Detection</strong>
+                <span id="defectSubtitle" data-i18n="defect_sub">Automated audit of tender references, missing testing protocols, and specification conflicts</span>
+              </div>
+            </div>
+            <span class="defect-count-pill" id="defectTotalCount">0 Issues Detected</span>
+          </div>
+          <div class="defect-cards-container" id="defectCardsContainer">
+            <!-- Dynamically populated -->
+          </div>
+        </section>
+
+        <!-- Extracted Structured Entities & Parameters (Feature 2 & 3) -->
+        <section class="surface entity-panel" aria-labelledby="entityHeading">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow" data-i18n="params_eyebrow">Requirement Extraction (NLP &amp; Entity Mining)</p>
+              <h2 id="entityHeading" data-i18n="params_heading">Structured Technical Parameters</h2>
+            </div>
+            <span class="pill green" data-i18n="pill_calibrated">Calibrated Extraction</span>
+          </div>
+          <div id="ragSummaryBox" class="rag-summary-box">
+            <span class="rag-summary-badge" data-i18n="rag_summary_title">🤖 Procurement Intelligence Summary</span>
+            <p id="ragSummaryText">Analyzing tender requirements and mapping to Bureau of Indian Standards (BIS)...</p>
+          </div>
+          <div class="entity-grid" id="entityGrid">
+            <!-- Dynamically populated -->
+          </div>
+        </section>
+
+        <!-- Results Section: Ranked Standards (Feature 7, 10, 11, 12, 16) -->
+        <section id="results" class="results-layout" aria-labelledby="resultsHeading">
+          <div class="surface results-panel">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow" data-i18n="results_eyebrow">Hybrid Retrieval &amp; Recommendation Engine</p>
+                <h2 id="resultsHeading"><span data-i18n="results_heading">Recommended Indian Standards</span> <span class="count-badge" id="resultCount">6</span></h2>
+              </div>
+              <div class="export-group" aria-label="Export recommendations">
+                <button class="btn-export-docx" id="btnExportDocx" title="Download official government-ready procurement audit report (.docx)" data-i18n="btn_export_docx">📥 DOCX Report</button>
+                <button class="btn-export-docx" id="btnExportPdf" title="Download official government-ready procurement audit report (.pdf)" style="background: linear-gradient(135deg, #0f766e, #0e9488); color: white;" data-i18n="btn_export_pdf">📄 PDF Report</button>
+                <button class="btn-gem-clause" id="copyGemClauseBtn" title="Copy formatted tender compliance clause for GeM / CPPP" data-i18n="btn_gem_clause">📋 Copy GeM Clause</button>
+                <button data-export="PDF" title="Download official PDF report">📄 PDF</button>
+                <button data-export="CSV" title="Download as CSV">📊 CSV</button>
+                <button data-export="XLSX" title="Export as Excel">📁 XLSX</button>
+              </div>
+            </div>
+
+            <!-- Quick Filter Chips -->
+            <div class="filter-chips" role="group" aria-label="Quick filters" id="filterChips">
+              <button class="chip active" data-cat-filter="all" data-i18n="filter_all">All Standards</button>
+              <button class="chip" data-cat-filter="Primary" data-i18n="filter_primary">Primary Product</button>
+              <button class="chip" data-cat-filter="Safety" data-i18n="filter_safety">Safety &amp; Ingress</button>
+              <button class="chip" data-cat-filter="Installation" data-i18n="filter_install">Installation &amp; Maint.</button>
+              <button class="chip" data-cat-filter="Test" data-i18n="filter_test">Test Method</button>
+              <button class="chip" data-cat-filter="withdrawn" data-i18n="filter_superseded">⚠ Superseded</button>
+              <button class="chip chip-qco" data-cat-filter="qco" data-i18n="filter_qco">🏷️ QCO Mandatory</button>
+            </div>
+
+            <div class="toolbar">
+              <input
+                id="searchInput"
+                placeholder="🔍 Search IS number, title, technical scope or ICS…"
+                aria-label="Search recommendations"
+                data-i18n-placeholder="search_placeholder"
+              />
+              <select id="statusFilter" aria-label="Filter by status">
+                <option value="all" data-i18n="filter_all">All statuses</option>
+                <option value="current" data-i18n="status_current">Current (Active)</option>
+                <option value="superseded" data-i18n="status_superseded">Superseded</option>
+                <option value="withdrawn" data-i18n="status_withdrawn">Withdrawn</option>
+              </select>
+              <select id="sortBy" aria-label="Sort results">
+                <option value="confidence" data-i18n="sort_confidence">Sort by Relevance</option>
+                <option value="status" data-i18n="sort_status">Sort by Status</option>
+                <option value="category" data-i18n="sort_category">Sort by Category</option>
+              </select>
+            </div>
+            <div class="standards-list" id="standardsList" role="list"></div>
+          </div>
+
+          <!-- Detail Panel -->
+          <aside class="surface detail-panel" id="detailPanel" aria-label="Recommendation details">
+            <div class="section-heading compact">
+              <div>
+                <p class="eyebrow" data-i18n="detail_eyebrow">Standard Intelligence Detail</p>
+                <h2 id="detailId">IS 12615:2018</h2>
+              </div>
+              <button class="icon-button" id="closeDetails" aria-label="Close details">✕</button>
+            </div>
+            <p class="detail-title" id="detailTitle"></p>
+            <div class="detail-meter-wrap">
+              <div class="detail-meter"><div id="detailMeter"></div></div>
+              <span id="detailConfidenceLabel" class="confidence-label">96%</span>
+            </div>
+
+            <!-- Explainability Checklist (Feature 12) -->
+            <div class="why-checklist-wrap" id="detailWhyBox">
+              <h4 data-i18n="detail_why_title">🎯 Why This Standard? (Explainability Checklist)</h4>
+              <div class="checklist-items" id="detailChecklist"></div>
+            </div>
+
+            <dl class="details-list">
+              <dt data-i18n="detail_status_lbl">Status</dt>
+              <dd id="detailStatus"></dd>
+              <dt data-i18n="detail_edition_lbl">Edition &amp; Year</dt>
+              <dd id="detailEdition"></dd>
+              <dt data-i18n="detail_ics_lbl">ICS Classification</dt>
+              <dd id="detailIcs"></dd>
+              <dt data-i18n="detail_cert_lbl">Statutory Certification</dt>
+              <dd id="detailCertification"></dd>
+              <dt data-i18n="detail_scope_lbl">Scope Explanation</dt>
+              <dd id="detailReason"></dd>
+            </dl>
+
+            <div id="detailAmendmentsWrap" style="display:none;margin-top:10px;">
+              <h4>📝 Gazette Amendments on Record</h4>
+              <p id="detailAmendmentsText" style="font-size:.84rem;color:var(--ink-muted);"></p>
+            </div>
+
+            <h3>Official Grounded Evidence &amp; Citations</h3>
+            <ul class="evidence-list" id="detailEvidence"></ul>
+            <h3>Technical Attributes</h3>
+            <div class="chip-row" id="detailAttributes"></div>
+
+            <div class="detail-actions">
+              <a id="detailBisLink" href="https://www.services.bis.gov.in/" target="_blank" rel="noopener" class="detail-action-btn bis-link" title="Search standard on official Bureau of Indian Standards portal">🌐 View on BIS Portal ↗</a>
+              <button class="detail-action-btn accept" id="detailAccept" data-action="accepted">✓ Accept</button>
+              <button class="detail-action-btn reject" id="detailReject" data-action="rejected">✕ Reject</button>
+              <button class="detail-action-btn edit" id="detailEdit" data-action="edited">✎ Suggest Edit</button>
+            </div>
+          </aside>
+        </section>
+
+        <!-- Standards Dependency Map & Knowledge Graph (Feature 8, 9, 32) -->
+        <section id="graph" class="surface graph-section" aria-labelledby="graphHeading">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Knowledge Graph Traversal (Feature 8, 9 &amp; 32)</p>
+              <h2 id="graphTitle">Standards Dependency Map for IS 12615:2018</h2>
+            </div>
+            <span class="pill green">Knowledge Graph Engine</span>
+          </div>
+          <div class="graph-legend">
+            <span class="legend-item"><span class="legend-dot center"></span> Primary Standard</span>
+            <span class="legend-item"><span class="legend-dot test"></span> Test Method</span>
+            <span class="legend-item"><span class="legend-dot safety"></span> Safety / IP Code</span>
+            <span class="legend-item"><span class="legend-dot install"></span> Installation Code</span>
+            <span class="legend-item"><span class="legend-dot normative"></span> Normative Ref</span>
+            <span class="legend-item"><span class="legend-dot super"></span> Superseded Code</span>
+          </div>
+          <div class="graph-wrap">
+            <svg id="graphSvg" viewBox="0 0 740 340" role="img" aria-label="Standards dependency network graph"></svg>
+          </div>
+          <p class="graph-hint">💡 Click any linked dependency node to inspect its scope, test protocols, or relation rationale</p>
+        </section>
+
+        <!-- Allied Standards & Comparison Section -->
+        <section class="section-grid two-col" aria-labelledby="alliedHeading">
+          <div class="surface">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Allied &amp; Companion Standards</p>
+                <h2 id="alliedHeading">Normative, Testing, Safety &amp; Installation Codes</h2>
+              </div>
+            </div>
+            <div class="allied-grid" id="alliedGrid">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <div class="surface compare-panel">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Specification Comparison</p>
+                <h2>Side-by-Side Evaluation</h2>
+              </div>
+              <button class="secondary-button compact-btn" id="clearComparison">Clear Selection</button>
+            </div>
+            <div class="comparison-table" id="comparisonTable" role="table" aria-label="Comparison table"></div>
+          </div>
+        </section>
+
+        <!-- Audit Trail & Notifications (Feature 18 & 19) -->
+        <section class="section-grid two-col" id="audit" aria-labelledby="notifHeading">
+          <div class="surface">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Notifications &amp; Alerts</p>
+                <h2 id="notifHeading">Real-Time Compliance Dispatch</h2>
+              </div>
+              <span class="pill">FR-04</span>
+            </div>
+            <div class="notification-list" id="notificationList" role="log" aria-live="polite" aria-label="Compliance notifications"></div>
+          </div>
+          <div class="surface">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Audit Trail (Feature 18 &amp; 19)</p>
+                <h2>Immutable Procurement Governance Log</h2>
+              </div>
+              <span class="pill green">FR-05</span>
+            </div>
+            <div class="audit-list" id="auditList" role="log" aria-label="Audit log"></div>
+          </div>
+        </section>
+
+        <!-- Technical Reviewer Validation Panel -->
+        <section id="techReviewSection" class="surface tech-review-section" aria-labelledby="techReviewHeading" style="display:none;">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Technical Reviewer &amp; Standards Expert Validation Layer</p>
+              <h2 id="techReviewHeading">Expert Endorsement &amp; Applicability Verification</h2>
+            </div>
+            <span class="pill" id="techReviewStatusBadge">Pending Technical Approval</span>
+          </div>
+
+          <div class="tech-review-grid">
+            <div class="tech-card">
+              <h3>📋 Technical Scope &amp; Normative References Audit</h3>
+              <p id="techReviewScopeText">Cross-verifying recommended standards against official BIS product scope, mandatory QCO orders, and sample testing frequencies.</p>
+              <div class="review-checklist" id="reviewChecklist">
+                <label class="check-item"><input type="checkbox" checked /> <span>Primary product classification aligned with BIS published scope</span></label>
+                <label class="check-item"><input type="checkbox" checked /> <span>Mandatory Quality Control Orders (QCO) &amp; CRS regulations verified</span></label>
+                <label class="check-item"><input type="checkbox" checked /> <span>Allied test method codes (IS 4029) &amp; IP degrees (IS/IEC 60034-5) attached</span></label>
+                <label class="check-item"><input type="checkbox" checked /> <span>Active editions validated against 5,768 amendment records</span></label>
+              </div>
+            </div>
+
+            <div class="tech-card">
+              <h3>✍️ Standards Expert Justification &amp; Endorsement Notes</h3>
+              <textarea id="techJustificationInput" placeholder="Enter expert technical justification, test protocol notes, or committee observations... (e.g. 'Verified conformity with IS 12615:2018 and IS 4029 for induction motors under Motors QCO. Recommendations approved for GeM tender.')."></textarea>
+              <div class="tech-actions">
+                <button class="primary-button" id="btnApproveTechReview"><span>✓</span> Endorse &amp; Approve Standards</button>
+                <button class="secondary-button" id="btnRequestClarification"><span>⚠️</span> Request Officer Clarification</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contractor / Vendor Compliance Submission Portal -->
+        <section id="vendorPortalSection" class="surface vendor-section" aria-labelledby="vendorPortalHeading" style="display:none;">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Contractor &amp; Vendor Compliance Submission Portal</p>
+              <h2 id="vendorPortalHeading">Tender Requirements &amp; Document Upload</h2>
+            </div>
+            <span class="pill green" id="vendorSubmissionStatusBadge">Tender Open for Bidding</span>
+          </div>
+
+          <div class="vendor-guidance-banner">
+            <span class="banner-icon">ℹ️</span>
+            <div>
+              <strong>Vendor Compliance Submission Notice (GFR 2017 / GeM):</strong>
+              <p>Bidders must upload valid BIS Licenses (CM/L or CRS) and NABL-accredited test reports for all mandatory Indian Standards listed below to qualify for technical evaluation.</p>
+            </div>
+          </div>
+
+          <div class="vendor-upload-grid">
+            <div class="vendor-upload-card">
+              <h4>📜 BIS License / ISI Mark Certificate *</h4>
+              <p>Upload CM/L License copy or CRS Registration document (PDF/JPG)</p>
+              <input type="file" id="vendorBisCertInput" class="vendor-file-input" accept=".pdf,.png,.jpg,.jpeg" />
+              <div class="file-status" id="vendorBisFileStatus">📄 No certificate uploaded yet</div>
+            </div>
+            <div class="vendor-upload-card">
+              <h4>🧪 NABL Laboratory Test Reports *</h4>
+              <p>Upload test reports conforming to required IS test methods (IS 4029 / IS 1608)</p>
+              <input type="file" id="vendorTestReportInput" class="vendor-file-input" accept=".pdf,.png,.jpg,.jpeg" />
+              <div class="file-status" id="vendorTestReportStatus">📄 No test reports uploaded yet</div>
+            </div>
+          </div>
+
+          <div class="vendor-compliance-table-wrap">
+            <h3>📑 Standard Compliance Matrix &amp; Undertaking</h3>
+            <div class="vendor-table" id="vendorComplianceTable" role="table"></div>
+          </div>
+
+          <div class="vendor-submit-bar">
+            <button class="primary-button" id="btnSubmitVendorCompliance">
+              <span>🚀</span> Submit Complete Vendor Compliance Package
+            </button>
+          </div>
+        </section>
+
+        <!-- Standards Management Section (Standards Administrator + System Admin) -->
+        <section id="stdsMgmtSection" class="surface stds-mgmt-section" aria-labelledby="stdsMgmtHeading" style="display:none;">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Standards Administrator — Knowledge Base Management</p>
+              <h2 id="stdsMgmtHeading">BIS Standards Knowledge Base &amp; Graph Editor</h2>
+            </div>
+            <span class="pill green">Standards Administrator</span>
+          </div>
+
+          <!-- KB Status Cards -->
+          <div class="stds-mgmt-status-grid" id="stdsMgmtStatusGrid">
+            <div class="stds-metric-card">
+              <span class="stds-metric-icon">📂</span>
+              <div>
+                <strong id="smTotalIndexed">13,335</strong>
+                <span>Standards Indexed</span>
+              </div>
+            </div>
+            <div class="stds-metric-card">
+              <span class="stds-metric-icon">⭐</span>
+              <div>
+                <strong id="smTotalCurated">—</strong>
+                <span>Curated Canonical</span>
+              </div>
+            </div>
+            <div class="stds-metric-card">
+              <span class="stds-metric-icon">🕸</span>
+              <div>
+                <strong id="smGraphEdges">—</strong>
+                <span>Graph Relationships</span>
+              </div>
+            </div>
+            <div class="stds-metric-card">
+              <span class="stds-metric-icon" id="smVectorIcon">✅</span>
+              <div>
+                <strong id="smVectorStatus">Ready</strong>
+                <span>Vector Index</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Admin Actions -->
+          <div class="stds-admin-actions">
+            <div class="stds-action-card">
+              <h3>🔄 Re-index Knowledge Base</h3>
+              <p>Triggers a full rebuild of the TF-IDF vector index from the updated BIS Standards Excel. Use after uploading new standards data files.</p>
+              <button class="primary-button" id="btnReindex"><span>🔄</span> Trigger Full Re-index</button>
+              <div class="reindex-status" id="reindexStatus" style="display:none;"></div>
+            </div>
+            <div class="stds-action-card">
+              <h3>📊 Feedback Analytics</h3>
+              <p>Aggregate view of all Procurement Officer accept/reject decisions recorded in the audit trail.</p>
+              <button class="secondary-button" id="btnLoadFeedbackAnalytics"><span>📊</span> Load Analytics</button>
+              <div class="feedback-analytics" id="feedbackAnalyticsPanel" style="display:none;"></div>
+            </div>
+          </div>
+
+          <!-- Curated Standards Viewer -->
+          <div class="stds-curated-viewer">
+            <div class="section-heading compact">
+              <div>
+                <p class="eyebrow">Curated Canonical Standards</p>
+                <h3>High-Priority Standards Registry</h3>
+              </div>
+              <button class="compact-btn" id="btnRefreshCurated">↻ Refresh</button>
+            </div>
+            <div class="curated-table-wrap" id="curatedTableWrap">
+              <p class="muted-hint">Click Refresh to load curated standards from the knowledge base.</p>
+            </div>
+          </div>
+
+          <!-- Graph Relationships Viewer -->
+          <div class="stds-graph-viewer">
+            <div class="section-heading compact">
+              <div>
+                <p class="eyebrow">Knowledge Graph Relationships</p>
+                <h3>Standards Dependency Network Editor</h3>
+              </div>
+              <button class="compact-btn" id="btnRefreshGraph">↻ Load Graph</button>
+            </div>
+            <div class="graph-rel-table" id="graphRelTable">
+              <p class="muted-hint">Click Load Graph to view normative, test, safety, and supersession relationships.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Admin / System Dashboard -->
+        <section id="admin" class="surface admin-section" aria-labelledby="adminHeading" style="display: none;">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">System and RBAC dashboard</p>
+              <h2 id="adminHeading">Requirements coverage and operational readiness</h2>
+            </div>
+            <span class="pill">FR-01 to FR-06 / NFR-01 to NFR-03</span>
+          </div>
+          <div class="admin-grid">
+            <div class="metric green">
+              <span>API p95 latency</span>
+              <strong>142ms</strong>
+            </div>
+            <div class="metric green">
+              <span>Availability</span>
+              <strong>99.96%</strong>
+            </div>
+            <div class="metric blue">
+              <span>Standards Indexed</span>
+              <strong>13,354</strong>
+            </div>
+            <div class="metric amber">
+              <span>Encryption</span>
+              <strong>TLS 1.3 / AES-256</strong>
+            </div>
+          </div>
+
+          <div class="admin-user-mgmt">
+            <div class="section-heading compact">
+              <div>
+                <p class="eyebrow">Enterprise RBAC</p>
+                <h3>User &amp; Organization Directory</h3>
+              </div>
+              <button class="primary-button compact-btn" id="btnAdminAddUser">➕ Add New User</button>
+            </div>
+            <div class="users-table-wrap" role="table" aria-label="Users directory">
+              <div class="user-row header">
+                <span>User</span>
+                <span>Role</span>
+                <span>Department / Org</span>
+                <span>Status</span>
+                <span>Actions</span>
+              </div>
+              <div id="usersTableBody"></div>
+            </div>
+          </div>
+        </section>
+
+        <footer class="app-footer">
+          <p>Standards Sahayak &copy; 2026 &mdash; AI-Powered Indian Standards Intelligence Engine for Public Procurement | Smart India Hackathon (SIH26108)</p>
+          <p class="footer-note">All Indian Standards metadata verified against official BIS publications and Gazette Quality Control Orders (QCO).</p>
+        </footer>
+      </main>
+    </div>
+
+    <!-- ── Standards AI Chatbot FAB + Slide-in Panel ─────────────────── -->
+    <button class="chatbot-fab" id="chatbotFab" aria-label="Open Standards AI Assistant" title="Standards AI Assistant">
+      <span class="fab-icon">💬</span>
+      <span class="fab-label">AI Assistant</span>
+      <span class="fab-pulse"></span>
+    </button>
+
+    <div class="chatbot-panel" id="chatbotPanel" role="dialog" aria-modal="false" aria-label="Standards AI Assistant" style="display:none;">
+      <!-- Panel Header -->
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="chat-avatar-circle">IS</div>
+          <div>
+            <strong>Standards AI Assistant</strong>
+            <span id="chatContextLabel" class="chat-context-tag">No analysis loaded</span>
+          </div>
+        </div>
+        <div class="chat-header-actions">
+          <select id="chatLangSelector" class="chat-lang-select" title="Response Language (Sarvam AI Multilingual)">
+            <option value="en-IN">🇬🇧 English</option>
+            <option value="hi-IN">🇮🇳 हिन्दी (Hindi)</option>
+            <option value="bn-IN">🇮🇳 বাংলা (Bengali)</option>
+            <option value="te-IN">🇮🇳 తెలుగు (Telugu)</option>
+            <option value="ta-IN">🇮🇳 தமிழ் (Tamil)</option>
+            <option value="mr-IN">🇮🇳 मराठी (Marathi)</option>
+            <option value="gu-IN">🇮🇳 ગુજરાતી (Gujarati)</option>
+            <option value="kn-IN">🇮🇳 ಕನ್ನಡ (Kannada)</option>
+            <option value="ml-IN">🇮🇳 മലയാളം (Malayalam)</option>
+            <option value="pa-IN">🇮🇳 ਪੰਜਾਬੀ (Punjabi)</option>
+            <option value="od-IN">🇮🇳 ଓଡ଼ିଆ (Odia)</option>
+          </select>
+          <button class="chat-icon-btn" id="chatClearBtn" title="Clear conversation">🗑</button>
+          <button class="chat-icon-btn" id="chatCloseBtn" aria-label="Close chatbot">✕</button>
+        </div>
+      </div>
+
+      <!-- Chat Messages -->
+      <div class="chat-messages" id="chatMessages" role="log" aria-live="polite">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- Suggested Questions -->
+      <div class="chat-suggestions" id="chatSuggestions">
+        <!-- Populated by JS after each reply -->
+      </div>
+
+      <!-- Citations Panel -->
+      <div class="chat-citations" id="chatCitations" style="display:none;">
+        <span class="citations-label">📎 Evidence &amp; Citations:</span>
+        <div id="citationsList"></div>
+      </div>
+
+      <!-- Input Area -->
+      <div class="chat-input-area">
+        <button class="chat-mic-btn" id="chatMicBtn" title="Voice Input (Sarvam AI Speech-to-Text)" aria-label="Record voice input">
+          <span class="mic-icon">🎤</span>
+        </button>
+        <textarea
+          id="chatInput"
+          class="chat-textarea"
+          rows="2"
+          placeholder="Ask about standards, recommendations, or click 🎤 to speak..."
+          aria-label="Chat message input"
+        ></textarea>
+        <button class="chat-send-btn" id="chatSendBtn" aria-label="Send message">
+          <span>⚡</span>
+        </button>
+      </div>
+
+      <div class="chat-footer-note">
+        🔒 Context-aware RAG • Evidence from 13,335 BIS Standards
+      </div>
+    </div>
+
+    <script src="i18n.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

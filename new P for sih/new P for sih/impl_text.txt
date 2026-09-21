@@ -1,0 +1,254 @@
+AI-Powered Recommendation Engine for Indian Standards (IS) in Procurement
+Implementation Plan
+1. Problem Framing & Scope
+Core task: Given a free-text product description / technical specification / tender document 
+(possibly in a regional language), return a ranked list of applicable Indian Standards, plus 
+allied/normative/test-method/safety/installation standards, current version status, and applicable 
+certification requirements (BIS, CRS, Hallmarking, etc.).
+This is fundamentally a semantic retrieval + knowledge-graph reasoning problem, not a 
+classification problem — the standards corpus is large, overlapping, and constantly revised, so the 
+system must retrieve, rank, and explain rather than just classify into fixed buckets.
+Two engines are needed working together:
+1. Retrieval Engine — finds candidate IS standards semantically relevant to the input.
+2. Standards Graph Engine — expands the top candidates into allied/normative/referenced standards 
+and attaches certification & version metadata.
+2. High-Level Architecture
+                                                                   
+                         INGESTION LAYER                           
+   BIS Standards Catalogue → Scraper/API → Parser → Normalizer     
+   (title, scope, ICS code, edition, amendments, withdrawal        
+    status, cross-references, certification scheme mapping)        
+                                                                 
+                             ▼
+                                                                   
+                     KNOWLEDGE BASE / GRAPH                        
+   • Standards metadata store (Postgres)                           
+   • Standard-to-standard relationship graph (Neo4j / RDF)         
+     edges: normative-reference, amends, supersedes,               
+     test-method-for, terminology-for, safety-companion-of         
+   • Vector index of standard scope/abstract text (pgvector/       
+     Milvus/FAISS)                                                 
+   • Certification scheme mapping table (BIS-CRS, ISI mark, etc.)  
+                                                                 
+                             ▼
+                                                                   
+                         NLP QUERY LAYER                           
+   Input (spec/tender text, any Indian language)                   
+    → Language detect + translate to English (IndicTrans2)         
+    → Entity/attribute extraction (material, dimensions, use-case) 
+    → Query embedding (domain-tuned encoder)                       
+                                                                 
+                             ▼
+                                                                   
+                      HYBRID RETRIEVAL & RANKING                   
+   Stage 1: Vector similarity search (top-100 candidates)          
+   Stage 2: Keyword/BM25 + ICS-code filter (recall boost)          
+   Stage 3: Cross-encoder re-ranker (LLM or fine-tuned reranker)   
+   Stage 4: Graph expansion (pull normative refs, test methods,    
+            terminology, safety/installation standards for the     
+            top-k primary standards)                                
+   Stage 5: Version/amendment resolution + certification lookup   
+                                                                 
+                             ▼
+                                                                   
+                    EXPLANATION / LLM LAYER                        
+   LLM (RAG-grounded) generates:                                   
+Untitled
+17 September 2026 11:15 PM
+   New Section 1 Page 1    
+   LLM (RAG-grounded) generates:                                   
+    • plain-language justification per recommended standard        
+    • confidence indicator                                         
+    • flags: "withdrawn", "superseded by IS xxxx:20xx",            
+      "mandatory BIS certification applies"                        
+                                                                 
+                             ▼
+                                                                   
+                     API / INTEGRATION LAYER                       
+   REST/GraphQL API → plug-in for GeM / e-procurement portals      
+   Web UI for manual lookups; audit log of every recommendation    
+                                                                   
+3. Data Foundation (the hardest and most critical part)
+Data need Source strategy
+Master list of IS standards, titles, scope, 
+ICS classification
+BIS Standards Catalogue / BIS e-Standards portal 
+(licensed bulk data or structured scraping with 
+permission)
+Full text of standards (scope, normative 
+references section)
+BIS document purchase/API where available; at 
+minimum scope + reference list is essential
+Amendment & revision history, withdrawal 
+status
+BIS "Status" pages / periodic BIS Gazette 
+notifications
+Cross-reference graph (which standards 
+cite which)
+Parsed from "Normative References" section of each 
+standard
+Certification scheme mapping (mandatory 
+BIS certification list, CRS list, 
+Hallmarking)
+BIS mandatory certification list (QCO — Quality 
+Control Orders), Ministry notifications
+Product/tender description examples for 
+training & eval
+Historical GeM tender specs, CPWD/PWD 
+schedules, past procurement documents 
+(anonymized)
+Key risk: BIS does not provide full standard text openly (it's a paid catalogue). Plan must budget 
+for either a licensing arrangement with BIS or scoping the MVP to metadata 
+(title/scope/ICS/cross-refs) rather than full text — this materially changes semantic quality and must 
+be resolved in Phase 0.
+4. Phased Delivery Plan
+Phase 0 — Discovery & Data Access (3–4 weeks)
+• Secure data-sharing agreement with BIS (or use whatever public catalogue fields are legally 
+scrapable).
+• Define standard schema: {IS_number, title, scope_text, ICS_code, edition_year, status, 
+amendments[], normative_refs[], certification_scheme}.
+• Collect a labeled evaluation set: ~500–1000 real tender/product descriptions manually mapped to 
+correct IS numbers by domain experts (procurement officers + BIS technical committee input). This gold 
+set drives every later quality decision.
+Phase 1 — Knowledge Base Construction (4–6 weeks)
+• Build ETL pipeline to ingest and normalize standards metadata into Postgres.
+• Parse normative-reference sections to build the graph (Neo4j, or Postgres adjacency table if 
+graph queries stay shallow).
+• Build certification-mapping table from QCO notifications.
+• Stand up a version-resolution service (given any IS number/edition, return latest valid edition + 
+amendment chain).
+Phase 2 — Retrieval MVP (4–5 weeks)
+• Generate embeddings for standard titles+scope using a domain-adapted sentence embedding 
+model (start with a strong general multilingual embedding model, e.g. an open multilingual 
+E5/BGE-class model; fine-tune later once labeled data exists).
+• Implement hybrid retrieval: vector search + BM25/ICS-code filter, fused via reciprocal rank 
+fusion.
+• Build a simple query API and internal test UI.
+   New Section 1 Page 2    
+• Build a simple query API and internal test UI.
+• Evaluate against the gold set using Recall@5/Recall@10 and MRR before moving on — do not 
+proceed to re-ranking until baseline recall is acceptable (target Recall@10 ≥ 0.85 as an internal gate).
+Phase 3 — Re-ranking, Graph Expansion & Explanation (4–6 weeks)
+• Add cross-encoder or LLM-based re-ranker on top-100 candidates for precision.
+• Implement graph-expansion logic: for each top-k primary standard, pull linked normative 
+references, test-method standards, terminology standards, safety/installation standards, tagged 
+by relationship type.
+• Add LLM explanation layer (RAG over the retrieved scope text) to generate justifications and flag 
+version/certification issues — constrain the LLM strictly to retrieved context to avoid hallucinated 
+standard numbers (critical: fabricated IS numbers are a real risk and must be actively guarded against, 
+e.g. by validating every cited IS number against the knowledge base before returning it).
+Phase 4 — Multilingual & Tender-Document Input (3–4 weeks)
+• Add language detection + translation (IndicTrans2 or equivalent) for regional-language queries.
+• Add tender-document ingestion: PDF/DOCX parsing, section segmentation (extract only the 
+technical-specification portion of a long tender document rather than feeding the whole file).
+Phase 5 — Integration & Portal Plug-in (4–6 weeks)
+• Build REST/GraphQL API with authentication, rate limiting, and audit logging (every 
+recommendation + the official's final choice should be logged for continuous evaluation).
+• Build a lightweight widget/plug-in for e-procurement portals (e.g. GeM-style spec-builder 
+integration) that suggests standards inline as the official types.
+• Build a standalone web UI for ad hoc lookups.
+Phase 6 — Pilot, Feedback Loop & Hardening (ongoing, 6+ weeks)
+• Pilot with a small set of departments/PSEs on real tenders.
+• Capture accept/reject/edit feedback on every recommendation → feed into re-ranker fine-tuning 
+and gold-set expansion.
+• Set up a scheduled job to detect newly withdrawn/superseded/amended standards and auto-flag 
+any tenders currently referencing them.
+• Security review, load testing, and accessibility review before wider rollout.
+5. Core Technical Choices
+Component Recommendation Why
+Embedding 
+model
+Multilingual, domain-fine-tunable (e.g. 
+E5/BGE-class open model)
+Needed for semantic (not keyword) 
+matching and multilingual input
+Vector store pgvector (if staying in Postgres) or 
+Milvus for scale
+Keeps ops simple at MVP scale; Milvus 
+if corpus/query volume grows large
+Graph store Neo4j (or Postgres adjacency tables 
+for MVP)
+Standard-to-standard relationships are 
+naturally graph-shaped
+Re-ranker Cross-encoder fine-tuned on gold set, 
+or LLM-as-reranker
+Precision boost after cheap recall-
+oriented retrieval
+Generation/ex
+planation
+LLM via API, strictly RAG-grounded 
+with post-hoc validation of cited IS 
+numbers
+Prevents hallucinated standard 
+citations — non-negotiable for a 
+compliance-facing tool
+Translation IndicTrans2 or equivalent open Indic 
+MT model
+Multilingual query support
+Document 
+parsing
+Layout-aware PDF/DOCX parser (e.g. 
+unstructured.io-style pipeline)
+Tender documents are long and mixed-
+format
+6. Evaluation Strategy
+• Retrieval quality: Recall@5, Recall@10, MRR against the expert-labeled gold set — track 
+separately for "primary standard identified" vs. "correct allied standards also surfaced."
+• Version correctness: % of recommendations pointing to the current valid edition (not 
+withdrawn/superseded) — should be near 100%, this is deterministic data-quality, not ML quality.
+• Hallucination rate: % of cited IS numbers that fail validation against the knowledge base — target 
+0%, monitored continuously in production, not just at launch.
+• Human-in-the-loop precision: % of top-3 recommendations accepted/used by procurement 
+officials during pilot, tracked per department.
+   New Section 1 Page 3    
+officials during pilot, tracked per department.
+• Latency: end-to-end response time target (e.g. <3–5s for interactive use in a spec-builder widget).
+7. Key Risks & Mitigations
+Risk Mitigation
+BIS full-text not freely 
+available
+Scope MVP to title/scope/ICS/cross-ref metadata; pursue formal 
+data agreement with BIS in parallel
+LLM hallucinates non-existent 
+or wrong IS numbers
+Hard validation layer: every IS number in the output must exist 
+in the knowledge base and match the resolved current edition 
+before being shown
+Standards get 
+revised/withdrawn after 
+ingestion
+Scheduled re-sync job against BIS status pages; version-
+resolution service is source of truth, not the vector index
+Cold-start: little labeled 
+query→standard data
+Start with expert-curated gold set of a few hundred examples; 
+expand via pilot feedback loop rather than trying to pre-label 
+everything
+Overlapping standard scopes 
+cause ambiguous top-1 
+answers
+Always return ranked top-k with confidence, not a single forced 
+answer; let the human decide
+Regional-language input 
+mistranslation
+Show both the translated query and original alongside results so 
+officials can verify intent
+8. Suggested Team & Timeline
+• Team: 1 PM, 2 backend/data engineers, 1–2 ML/NLP engineers, 1 knowledge-graph/data engineer, 1 
+frontend engineer, 1 domain SME (ex-BIS/procurement background) part-time throughout, 1 QA.
+• Total timeline to pilot-ready MVP: ~7–9 months across Phases 0–5, assuming data access is resolved 
+early; Phase 6 (feedback hardening) continues indefinitely as a product operations function.
+9. MVP Cut (if timeline is tight, e.g. hackathon-scale)
+For a demo-scale MVP (weeks, not months):
+1. Scrape/compile a few hundred IS standards' titles, scope, and ICS codes covering 2–3 product 
+categories (e.g. cement, steel bars, electrical cables).
+2. Build vector + keyword hybrid search over that subset.
+3. Manually build a small cross-reference graph for those categories only.
+4. Add an LLM layer to explain matches, with strict validation that any cited IS number exists in the 
+local dataset.
+5. Simple web UI: paste a spec → get ranked standards + allied standards + a certification flag if 
+applicable.
+This demonstrates the full pipeline end-to-end without needing the full BIS catalogue.
+From <https://claude.ai/chat/076518c5-2ebe-4e43-94ff-c174d9f04cd3?artifact=194f941d-d0de-4e70-
+bfe9-915cb892a93e> 
+   New Section 1 Page 4    

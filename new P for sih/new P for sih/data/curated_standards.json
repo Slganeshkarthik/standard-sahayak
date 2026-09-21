@@ -1,0 +1,504 @@
+[
+  {
+    "standard_number": "IS 12615:2018",
+    "base_number": "IS 12615",
+    "title": "Energy Efficient Three Phase Squirrel Cage Induction Motors (Third Revision)",
+    "category": "Primary",
+    "edition": "Third Revision (2018)",
+    "publication_year": 2018,
+    "status": "current",
+    "supersedes": "IS 325:1996, IS 12615:2011",
+    "superseded_by": null,
+    "amendments": [
+      { "number": "Amendment 1", "year": "2020", "details": "Updates on IE4 efficiency measurement tolerances" },
+      { "number": "Amendment 2", "year": "2022", "details": "Clarifications on variable frequency drive (VFD) duty" }
+    ],
+    "qco_mandatory": true,
+    "certification_scheme": "BIS ISI Mark Mandatory under QCO",
+    "qco_order_title": "Electrical Motors (Quality Control) Order, Ministry of Heavy Industries",
+    "scope_summary": "Covers efficiency classes (IE2, IE3, IE4) and performance specifications for line-operated 3-phase squirrel cage induction motors with rated voltage up to 1000V, 50Hz, power rating from 0.12 kW to 1000 kW for industrial and general applications.",
+    "technical_parameters": {
+      "product": "Three Phase Squirrel Cage Induction Motor",
+      "voltage_range": "Up to 1000V (Standard 415V)",
+      "frequency": "50 Hz",
+      "phase": "3 Phase",
+      "efficiency_classes": ["IE2 (High)", "IE3 (Premium)", "IE4 (Super Premium)"],
+      "mounting": "Foot mounted / Flange mounted (as per IS 1231 / IS 2223)",
+      "duty_type": "Continuous duty S1",
+      "application": "Industrial pumps, fans, compressors, conveyors, heavy machinery",
+      "operating_environment": "Standard industrial ambient up to 50°C, high humidity"
+    },
+    "ics_code": "29.160.30",
+    "department": "Electrotechnical Department (ETD 15)",
+    "compendium_source": "BIS Compendium of Standards on Energy Efficient Industrial Machinery (ETD-15)"
+  },
+  {
+    "standard_number": "IS/IEC 60034-1:2004",
+    "base_number": "IS/IEC 60034-1",
+    "title": "Rotating Electrical Machines - Part 1: Rating and Performance",
+    "category": "Primary",
+    "edition": "First Edition (2004, Reaffirmed 2019)",
+    "publication_year": 2004,
+    "status": "current",
+    "supersedes": null,
+    "superseded_by": null,
+    "amendments": [
+      { "number": "Corrigendum 1", "year": "2010", "details": "Harmonization with IEC rating tolerances" }
+    ],
+    "qco_mandatory": true,
+    "certification_scheme": "BIS Product Certification Scheme",
+    "qco_order_title": "Electrical Machinery Quality Order",
+    "scope_summary": "Applies to all rotating electrical machines except those covered by other IEC standards. Establishes duty types (S1-S9), thermal classes, insulation limits, rating plates, temperature rise, and overload tolerances.",
+    "technical_parameters": {
+      "product": "Rotating Electrical Machines / AC & DC Motors",
+      "thermal_classes": ["Class 130 (B)", "Class 155 (F)", "Class 180 (H)"],
+      "overload_capacity": "1.5 times rated current for 2 minutes",
+      "voltage_variation": "Zone A (±5% voltage, ±2% frequency)"
+    },
+    "ics_code": "29.160.01",
+    "department": "Electrotechnical Department (ETD 15)",
+    "compendium_source": "BIS Electrotechnical Resource Book 01"
+  },
+  {
+    "standard_number": "IS 325:1996",
+    "base_number": "IS 325",
+    "title": "Three-Phase Induction Motors - Specification (Fifth Revision)",
+    "category": "Primary",
+    "edition": "Fifth Revision (1996)",
+    "publication_year": 1996,
+    "status": "superseded",
+    "supersedes": "IS 325:1978",
+    "superseded_by": "IS 12615:2018 & IS/IEC 60034-1:2004",
+    "amendments": [],
+    "qco_mandatory": false,
+    "certification_scheme": "Historical (Superseded)",
+    "qco_order_title": "Superseded by Bureau of Indian Standards Notification",
+    "scope_summary": "Historical standard for medium and low voltage three-phase induction motors. Now fully superseded by energy-efficiency-mandated IS 12615.",
+    "technical_parameters": {
+      "product": "Three Phase Induction Motor (Legacy)",
+      "voltage": "415V",
+      "frequency": "50Hz"
+    },
+    "ics_code": "29.160.30",
+    "department": "ETD 15",
+    "compendium_source": "BIS Historical Standards Archive"
+  },
+  {
+    "standard_number": "IS 4029:2010",
+    "base_number": "IS 4029",
+    "title": "Guide for Testing Three-Phase Induction Motors (First Revision)",
+    "category": "Test Method",
+    "edition": "First Revision (2010, Reaffirmed 2021)",
+    "publication_year": 2010,
+    "status": "current",
+    "supersedes": "IS 4029:1967",
+    "superseded_by": null,
+    "amendments": [
+      { "number": "Amendment 1", "year": "2016", "details": "Summation of losses test methods" }
+    ],
+    "qco_mandatory": true,
+    "certification_scheme": "BIS Test Code for Compliance Verification",
+    "qco_order_title": "Normative companion under Motors QCO",
+    "scope_summary": "Prescribes methods of test for three-phase induction motors including insulation resistance measurement, no-load test, locked rotor test, temperature rise test by resistance method, efficiency determination by loss segregation, and high voltage dielectric withstand test.",
+    "technical_parameters": {
+      "test_types": ["Insulation Resistance", "Dielectric Withstand HV Test (1000V + 2xUn)", "Locked Rotor Test", "Temperature Rise", "Torque-Speed Characteristic", "Acoustic Noise"]
+    },
+    "ics_code": "29.160.30",
+    "department": "ETD 15",
+    "compendium_source": "BIS Test Codes Compendium"
+  },
+  {
+    "standard_number": "IS/IEC 60034-5:2020",
+    "base_number": "IS/IEC 60034-5",
+    "title": "Rotating Electrical Machines - Part 5: Degrees of Protection Provided by Integral Design of Rotating Electrical Machines (IP Code)",
+    "category": "Safety",
+    "edition": "Second Edition (2020)",
+    "publication_year": 2020,
+    "status": "current",
+    "supersedes": "IS/IEC 60034-5:2000",
+    "superseded_by": null,
+    "amendments": [],
+    "qco_mandatory": true,
+    "certification_scheme": "Safety Compliance Mandate",
+    "qco_order_title": "Industrial Safety and Environmental Enclosure Regulation",
+    "scope_summary": "Defines requirements for protective enclosures of rotating machines (IP codes like IP54, IP55, IP56, IP65, IP66). Specifies tests for protection of persons against contact with live or moving parts, ingress of solid foreign objects, and harmful ingress of water.",
+    "technical_parameters": {
+      "protection_degrees": ["IP54 (Dust protected / Splash proof)", "IP55 (Dust protected / Water jets)", "IP65 (Dust tight / Water jets)", "IP66 (Dust tight / Heavy seas)"]
+    },
+    "ics_code": "29.160.01",
+    "department": "ETD 15",
+    "compendium_source": "BIS Machine Safety Compendium Book 15"
+  },
+  {
+    "standard_number": "IS 900:1992",
+    "base_number": "IS 900",
+    "title": "Code of Practice for Installation and Maintenance of Induction Motors (Second Revision)",
+    "category": "Installation",
+    "edition": "Second Revision (1992, Reaffirmed 2020)",
+    "publication_year": 1992,
+    "status": "current",
+    "supersedes": "IS 900:1965",
+    "superseded_by": null,
+    "amendments": [
+      { "number": "Amendment 1", "year": "1998", "details": "Foundations and vibration isolation pads" }
+    ],
+    "qco_mandatory": false,
+    "certification_scheme": "BIS Code of Practice (GFR Compliance Mandatory)",
+    "qco_order_title": "CPWD & Public Works Procurement Norms",
+    "scope_summary": "Provides comprehensive guidance on site selection, concrete foundation design, alignment with driven machines (direct flexible coupling, belt drives), electrical cable termination, earthing connection, commissioning pre-checks, and periodic preventive maintenance for induction motors.",
+    "technical_parameters": {
+      "alignment_tolerance": "Within 0.05 mm radial and axial runout",
+      "earthing": "Two independent earth connections as per IS 3043",
+      "vibration_limits": "Class 1.8 / 2.8 mm/s RMS vibration velocity"
+    },
+    "ics_code": "29.160.30",
+    "department": "ETD 15",
+    "compendium_source": "BIS Electrotechnical Handout Book 01"
+  },
+  {
+    "standard_number": "IS 1231:1974",
+    "base_number": "IS 1231",
+    "title": "Dimensions of Three-Phase Foot-Mounted Induction Motors (Third Revision)",
+    "category": "Dimensions",
+    "edition": "Third Revision (1974, Reaffirmed 2021)",
+    "publication_year": 1974,
+    "status": "current",
+    "supersedes": null,
+    "superseded_by": null,
+    "amendments": [
+      { "number": "Amendment 1", "year": "1988", "details": "Standard shaft extension tolerances" }
+    ],
+    "qco_mandatory": false,
+    "certification_scheme": "Dimensional Interchangeability Standard",
+    "qco_order_title": "Indian Standard Dimensional Specifications",
+    "scope_summary": "Specifies standard frame sizes (frame numbers 56 to 450), shaft heights, shaft extension diameters, keyway dimensions, and fixing hole center distances for foot-mounted three-phase induction motors to ensure mechanical interchangeability.",
+    "technical_parameters": {
+      "frame_sizes": "Frame 56 to 450M/L",
+      "shaft_extensions": "Cylindrical with parallel keyways"
+    },
+    "ics_code": "29.160.30",
+    "department": "ETD 15",
+    "compendium_source": "BIS Machinery Standards"
+  },
+  {
+    "standard_number": "IS 1786:2008",
+    "base_number": "IS 1786",
+    "title": "High Strength Deformed Steel Bars and Wires for Concrete Reinforcement (Fourth Revision)",
+    "category": "Primary",
+    "edition": "Fourth Revision (2008, Reaffirmed 2018)",
+    "publication_year": 2008,
+    "status": "current",
+    "supersedes": "IS 1786:1985",
+    "superseded_by": null,
+    "amendments": [
+      { "number": "Amendment 1", "year": "2012", "details": "Introduction of earthquake-resistant D grade (Fe 500D, Fe 550D)" },
+      { "number": "Amendment 2", "year": "2017", "details": "Phosphorus and sulphur limit reductions" },
+      { "number": "Amendment 3", "year": "2021", "details": "Addition of Fe 650 and Fe 700 high strength grades" }
+    ],
+    "qco_mandatory": true,
+    "certification_scheme": "BIS ISI Mark Mandatory under QCO",
+    "qco_order_title": "Steel and Steel Products (Quality Control) Order, Ministry of Steel",
+    "scope_summary": "Specifies chemical composition, physical properties, tensile yield strength, elongation, bend, rebend, and rib geometry for thermo-mechanically treated (TMT) deformed steel bars (Fe 415, Fe 500, Fe 500D, Fe 550D) used in RCC construction.",
+    "technical_parameters": {
+      "product": "TMT Rebar / Reinforcement Steel",
+      "grades": ["Fe 415", "Fe 500", "Fe 500D", "Fe 550D", "Fe 600"],
+      "yield_strength": "500 MPa min (for Fe 500/500D)",
+      "elongation": "16% min (Fe 500D earthquake grade)",
+      "application": "Reinforced concrete buildings, bridges, dams, transport infrastructure"
+    },
+    "ics_code": "77.140.15",
+    "department": "Civil Engineering / Metallurgical (CED 54 / MTD 04)",
+    "compendium_source": "BIS Building Materials Compendium Book 17"
+  },
+  {
+    "standard_number": "IS 1608 (Part 1):2022",
+    "base_number": "IS 1608",
+    "title": "Metallic Materials - Tensile Testing: Part 1 Method of Test at Room Temperature (Fifth Revision)",
+    "category": "Test Method",
+    "edition": "Fifth Revision (2022)",
+    "publication_year": 2022,
+    "status": "current",
+    "supersedes": "IS 1608:2005",
+    "superseded_by": null,
+    "amendments": [],
+    "qco_mandatory": true,
+    "certification_scheme": "Normative Test Code",
+    "qco_order_title": "Steel Testing Mandatory Norms",
+    "scope_summary": "Prescribes method of tensile testing for metallic materials and determines proof strength, upper and lower yield strength, tensile ultimate strength, percentage elongation after fracture, and percentage reduction of area.",
+    "technical_parameters": {
+      "test_types": ["Tensile Strength", "0.2% Proof Stress", "Total Elongation at Maximum Force (AgT)"]
+    },
+    "ics_code": "77.040.10",
+    "department": "MTD 04",
+    "compendium_source": "Mechanical Testing of Metals Compendium"
+  },
+  {
+    "standard_number": "IS 269:2015",
+    "base_number": "IS 269",
+    "title": "Ordinary Portland Cement - Specification (Sixth Revision)",
+    "category": "Primary",
+    "edition": "Sixth Revision (2015, Reaffirmed 2020)",
+    "publication_year": 2015,
+    "status": "current",
+    "supersedes": "IS 269:1989, IS 8112:1989, IS 12269:1987",
+    "superseded_by": null,
+    "amendments": [
+      { "number": "Amendment 1", "year": "2018", "details": "Performance composite clinker additions" },
+      { "number": "Amendment 2", "year": "2021", "details": "Packaging in HDPE / paper bags norms" }
+    ],
+    "qco_mandatory": true,
+    "certification_scheme": "BIS ISI Mark Mandatory under QCO",
+    "qco_order_title": "Cement (Quality Control) Order, DPIIT",
+    "scope_summary": "Unified standard covering 33 grade, 43 grade, and 53 grade Ordinary Portland Cement (OPC). Specifies chemical requirements (insoluble residue, magnesia, loss on ignition) and physical requirements (fineness, setting time, sound, and compressive strength at 3, 7, and 28 days).",
+    "technical_parameters": {
+      "product": "Ordinary Portland Cement (OPC)",
+      "grades": ["33 Grade", "43 Grade", "53 Grade"],
+      "compressive_strength_28_days": "43 MPa min (Grade 43), 53 MPa min (Grade 53)",
+      "setting_time": "Initial: >= 30 min, Final: <= 600 min",
+      "application": "High-rise structures, precast concrete, pavements, RCC bridges"
+    },
+    "ics_code": "91.100.10",
+    "department": "CED 02",
+    "compendium_source": "Compendium of Cement Standards (CED-02)"
+  },
+  {
+    "standard_number": "IS 456:2000",
+    "base_number": "IS 456",
+    "title": "Plain and Reinforced Concrete - Code of Practice (Fourth Revision)",
+    "category": "Code of Practice",
+    "edition": "Fourth Revision (2000, Reaffirmed 2021)",
+    "publication_year": 2000,
+    "status": "current",
+    "supersedes": "IS 456:1978",
+    "superseded_by": null,
+    "amendments": [
+      { "number": "Amendment 1", "year": "2001", "details": "Exposure conditions and cover to reinforcement" },
+      { "number": "Amendment 2", "year": "2005", "details": "Minimum cement content requirements" },
+      { "number": "Amendment 3", "year": "2007", "details": "High strength concrete grades M65-M100" },
+      { "number": "Amendment 4", "year": "2013", "details": "Mineral admixtures (fly ash, GGBS, silica fume)" },
+      { "number": "Amendment 5", "year": "2019", "details": "Shear design and detailing" }
+    ],
+    "qco_mandatory": false,
+    "certification_scheme": "National Building Code / GFR Mandatory Code",
+    "qco_order_title": "Central & State PWD Technical Specification Mandatory Code",
+    "scope_summary": "General structural engineering code for concrete structures. Details materials, workability, durability requirements, minimum cementitious content, water-cement ratios, structural design limit states (flexure, compression, shear, torsion), and workmanship.",
+    "technical_parameters": {
+      "concrete_grades": ["M20", "M25", "M30", "M35", "M40", "M50"],
+      "slump_range": "25 mm to 150 mm depending on placement method"
+    },
+    "ics_code": "91.100.30",
+    "department": "CED 02",
+    "compendium_source": "BIS Concrete & Structural Compendium"
+  },
+  {
+    "standard_number": "IS 694:2010",
+    "base_number": "IS 694",
+    "title": "Polyvinyl Chloride Insulated Cables for Working Voltages up to and Including 1100 V (Fourth Revision)",
+    "category": "Primary",
+    "edition": "Fourth Revision (2010, Reaffirmed 2020)",
+    "publication_year": 2010,
+    "status": "current",
+    "supersedes": "IS 694:1990",
+    "superseded_by": null,
+    "amendments": [
+      { "number": "Amendment 1", "year": "2014", "details": "Flame Retardant Low Smoke (FRLS) specifications" },
+      { "number": "Amendment 2", "year": "2019", "details": "Halogen acid gas emission testing" }
+    ],
+    "qco_mandatory": true,
+    "certification_scheme": "BIS ISI Mark Mandatory under QCO",
+    "qco_order_title": "Electrical Wires, Cables and Appliances QCO, DPIIT",
+    "scope_summary": "Requirements for single core, multi-core circular and flat PVC insulated copper or aluminium conductor cables for electric power and lighting up to 1100V AC. Includes FRLS and zero-halogen fire safety cable types.",
+    "technical_parameters": {
+      "voltage_rating": "Up to 1100 V AC",
+      "conductors": ["Plain annealed electrolytic copper", "Aluminium Class 1/2/5"],
+      "insulation": "PVC Type A, Type C (HR), FR, FRLS",
+      "application": "Internal building electrification, switchboards, lighting circuits"
+    },
+    "ics_code": "29.060.20",
+    "department": "ETD 09",
+    "compendium_source": "BIS Electrical Engineering Book 01"
+  },
+  {
+    "standard_number": "IS 1554 (Part 1):1988",
+    "base_number": "IS 1554",
+    "title": "PVC Insulated (Heavy Duty) Electric Cables: Part 1 for Working Voltages up to and Including 1100 V (Third Revision)",
+    "category": "Primary",
+    "edition": "Third Revision (1988, Reaffirmed 2020)",
+    "publication_year": 1988,
+    "status": "current",
+    "supersedes": "IS 1554 (Part 1):1976",
+    "superseded_by": null,
+    "amendments": [
+      { "number": "Amendment 1 to 5", "year": "2018", "details": "Armouring round wire and strip tolerances" }
+    ],
+    "qco_mandatory": true,
+    "certification_scheme": "BIS ISI Mark Mandatory under QCO",
+    "qco_order_title": "Cables and Conductors Quality Control Order",
+    "scope_summary": "Requirements for armoured and unarmoured heavy duty PVC insulated power and control cables for power distribution up to 1100V.",
+    "technical_parameters": {
+      "armour": "Galvanized round steel wire / formed steel strip",
+      "voltage": "650/1100 V"
+    },
+    "ics_code": "29.060.20",
+    "department": "ETD 09",
+    "compendium_source": "BIS Cables Compendium"
+  },
+  {
+    "standard_number": "IS 3043:2018",
+    "base_number": "IS 3043",
+    "title": "Code of Practice for Earthing (Second Revision)",
+    "category": "Safety",
+    "edition": "Second Revision (2018)",
+    "publication_year": 2018,
+    "status": "current",
+    "supersedes": "IS 3043:1987",
+    "superseded_by": null,
+    "amendments": [
+      { "number": "Amendment 1", "year": "2021", "details": "Chemical / pipe earth electrodes" }
+    ],
+    "qco_mandatory": false,
+    "certification_scheme": "Statutory Electrical Safety Code (Central Electricity Authority CEA)",
+    "qco_order_title": "CEA Safety Regulations & CPWD Electrical Specs",
+    "scope_summary": "Authoritative Indian code for electrical grounding and earthing of LV, MV, and HV installations, sub-stations, industrial equipment, generators, motors, and consumer premises.",
+    "technical_parameters": {
+      "electrode_types": ["Plate electrode", "Pipe electrode", "Rod electrode"],
+      "earth_resistance": "<= 1.0 Ohm for sub-stations, <= 5.0 Ohm for industrial machinery"
+    },
+    "ics_code": "29.120.50",
+    "department": "ETD 20",
+    "compendium_source": "BIS Electrotechnical Book 01"
+  },
+  {
+    "standard_number": "IS 16107 (Part 2/Sec 2):2017",
+    "base_number": "IS 16107",
+    "title": "Luminaires Performance - Part 2 Particular Requirements - Section 2 LED Street Light Luminaires",
+    "category": "Primary",
+    "edition": "First Edition (2017, Reaffirmed 2022)",
+    "publication_year": 2017,
+    "status": "current",
+    "supersedes": null,
+    "superseded_by": null,
+    "amendments": [
+      { "number": "Amendment 1", "year": "2020", "details": "Efficacy threshold updated to >= 120 lm/W" }
+    ],
+    "qco_mandatory": true,
+    "certification_scheme": "BIS CRS (Compulsory Registration Scheme)",
+    "qco_order_title": "Electronics and Information Technology Goods (Requirement for Compulsory Registration) Order, MeitY",
+    "scope_summary": "Specifies performance, electrical, photometrical, and thermal requirements for LED luminaires for road and street lighting, including luminous efficacy, power factor, total harmonic distortion (THD), colour temperature (CCT), CRI, and surge immunity.",
+    "technical_parameters": {
+      "product": "LED Street Light Luminaire",
+      "luminous_efficacy": ">= 110 - 130 lm/W",
+      "power_factor": ">= 0.95",
+      "surge_protection": ">= 4 kV (standard), >= 10 kV (high risk road lightning zones)",
+      "ingress_protection": "IP66 minimum for optical and control gear compartments"
+    },
+    "ics_code": "29.140.40",
+    "department": "ETD 23",
+    "compendium_source": "BIS Lighting Handout Book 01"
+  },
+  {
+    "standard_number": "IS 10322 (Part 5/Sec 3):2012",
+    "base_number": "IS 10322",
+    "title": "Luminaires: Part 5 Particular Requirements: Section 3 Luminaires for Road and Street Lighting",
+    "category": "Safety",
+    "edition": "Second Edition (2012, Reaffirmed 2018)",
+    "publication_year": 2012,
+    "status": "current",
+    "supersedes": null,
+    "superseded_by": null,
+    "amendments": [
+      { "number": "Amendment 1", "year": "2017", "details": "Thermal endurance and mechanical vibration tests" }
+    ],
+    "qco_mandatory": true,
+    "certification_scheme": "BIS ISI / CRS Mandatory Safety Standard",
+    "qco_order_title": "Electrical Safety Regulations",
+    "scope_summary": "Specifies mandatory safety and structural requirements for road and street lighting luminaires, including electric shock protection, creepage and clearance distances, thermal endurance, and resistance to dust and moisture.",
+    "technical_parameters": {
+      "insulation_class": "Class I / Class II",
+      "mechanical_impact": "IK08 minimum"
+    },
+    "ics_code": "29.140.40",
+    "department": "ETD 23",
+    "compendium_source": "BIS Lighting Handout Book 01"
+  },
+  {
+    "standard_number": "IS 4984:2016",
+    "base_number": "IS 4984",
+    "title": "High Density Polyethylene (HDPE) Pipes for Water Supply - Specification (Fifth Revision)",
+    "category": "Primary",
+    "edition": "Fifth Revision (2016, Reaffirmed 2021)",
+    "publication_year": 2016,
+    "status": "current",
+    "supersedes": "IS 4984:1995",
+    "superseded_by": null,
+    "amendments": [
+      { "number": "Amendment 1", "year": "2019", "details": "PE 100 raw material compounding" }
+    ],
+    "qco_mandatory": true,
+    "certification_scheme": "BIS ISI Mark Mandatory under QCO",
+    "qco_order_title": "Pipes and Fittings Quality Control Order, Department of Chemicals & Petrochemicals",
+    "scope_summary": "Requirements for high density polyethylene (HDPE) pipes made from PE 63, PE 80, and PE 100 raw materials for buried and above-ground conveyance of potable water under pressure (PN 2.5 to PN 16).",
+    "technical_parameters": {
+      "product": "HDPE Pressure Pipes",
+      "materials": ["PE 63", "PE 80", "PE 100"],
+      "pressure_ratings": ["PN 2.5", "PN 4", "PN 6", "PN 10", "PN 16"],
+      "diameters": "20 mm to 1000 mm"
+    },
+    "ics_code": "23.040.20",
+    "department": "CED 50",
+    "compendium_source": "PCD / CED Pipes Compendium"
+  },
+  {
+    "standard_number": "IS 8329:2000",
+    "base_number": "IS 8329",
+    "title": "Centrifugally Cast (Ductile) Iron Pressure Pipes for Water, Gas and Sewage - Specification (Third Revision)",
+    "category": "Primary",
+    "edition": "Third Revision (2000, Reaffirmed 2020)",
+    "publication_year": 2000,
+    "status": "current",
+    "supersedes": "IS 8329:1990",
+    "superseded_by": null,
+    "amendments": [
+      { "number": "Amendment 1", "year": "2008", "details": "Zinc coating external protection requirements" },
+      { "number": "Amendment 2", "year": "2016", "details": "Class C classification" }
+    ],
+    "qco_mandatory": true,
+    "certification_scheme": "BIS ISI Mark Mandatory under QCO",
+    "qco_order_title": "Ductile Iron Pipes QCO, Ministry of Steel",
+    "scope_summary": "Specifies manufacturing, hydrostatic pressure testing, cement mortar lining, and external zinc coating for ductile iron pipes (Class K7, K9, K12) with socket and spigot push-on joints for water and sewage mains.",
+    "technical_parameters": {
+      "product": "Ductile Iron (DI) Pipe",
+      "classes": ["Class K7", "Class K9", "Class K12"],
+      "diameters": "80 mm to 2000 mm",
+      "joint_types": ["Push-on flexible joint", "Mechanical joint", "Flanged joint"]
+    },
+    "ics_code": "23.040.10",
+    "department": "CED 50",
+    "compendium_source": "BIS Water Supply Compendium"
+  },
+  {
+    "standard_number": "IS 14286:2010",
+    "base_number": "IS 14286",
+    "title": "Crystalline Silicon Terrestrial Photovoltaic (PV) Modules - Design Qualification and Type Approval",
+    "category": "Primary",
+    "edition": "Second Edition (2010, Reaffirmed 2021)",
+    "publication_year": 2010,
+    "status": "current",
+    "supersedes": "IS 14286:1995",
+    "superseded_by": null,
+    "amendments": [
+      { "number": "Amendment 1", "year": "2019", "details": "Bifacial module testing protocols" }
+    ],
+    "qco_mandatory": true,
+    "certification_scheme": "BIS CRS Mandatory Registration",
+    "qco_order_title": "Solar Photovoltaics, Systems, Devices and Components Goods (Requirements for Compulsory Registration) Order, MNRE",
+    "scope_summary": "Prescribes requirements for design qualification and type approval of terrestrial crystalline silicon photovoltaic modules suitable for long-term outdoor operation in general open-air climates.",
+    "technical_parameters": {
+      "product": "Solar PV Modules (Monocrystalline / Polycrystalline)",
+      "tests": ["Thermal cycling", "Humidity freeze", "Damp heat 1000h", "Mechanical load 2400-5400 Pa", "Hail impact"]
+    },
+    "ics_code": "27.160",
+    "department": "ETD 28",
+    "compendium_source": "Solar Biofuels & Renewable Energy Compendium"
+  }
+]

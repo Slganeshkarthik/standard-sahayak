@@ -1,0 +1,46 @@
+[
+  {
+    "id": "U101",
+    "name": "Er. Priya Sharma",
+    "email": "priya.sharma@gem.gov.in",
+    "password_hash": "scrypt:32768:8:1$07wWfyi1XZoVV2pK$e922b6626cb9dba6075f40e4ba0828476e8775aebc8a6708c92996bf82e2308f87efae88a7af71b763b118fca9a23e24f2025e89fc94ffe535e1a7462c21cea9",
+    "org": "CPWD / Urban Infrastructure",
+    "designation": "Executive Engineer (Procurement)",
+    "role": "Procurement Officer",
+    "status": "Active",
+    "created_at": "2026-01-15T10:00:00"
+  },
+  {
+    "id": "U202",
+    "name": "Dr. Anil Sharma",
+    "email": "anil.sharma@bis.gov.in",
+    "password_hash": "scrypt:32768:8:1$Rh8rLP1iEiaAmvTv$f8fb59ca622301a310a03f07aa7716c342a5e0230a179cce9bc2bcc9b686294022709289650fbc28eddd967a0e7a9d0e6cd9abf9b76c5fe5316f55aa46e568c6",
+    "org": "Bureau of Indian Standards (BIS)",
+    "designation": "Director (Standardization - ETD)",
+    "role": "Standards Administrator",
+    "status": "Active",
+    "created_at": "2026-01-15T10:00:00"
+  },
+  {
+    "id": "U404",
+    "name": "System Administrator",
+    "email": "admin@nic.in",
+    "password_hash": "scrypt:32768:8:1$8fbCzuHhkPBC0IUd$6426c37154378b12245de2b6b8f245e7db3c2f787511915daa44e3d43d34c3ab22cebc33e41b85b316802bb2b0d2765fa0426147bce6b3f34d26188749f5c18b",
+    "org": "NIC / Ministry of Heavy Industries",
+    "designation": "Principal System Admin",
+    "role": "System Administrator",
+    "status": "Active",
+    "created_at": "2026-01-15T10:00:00"
+  },
+  {
+    "id": "U695546",
+    "name": "Assistant Engineer Rajesh Kumar",
+    "email": "rajesh.kumar@cpwd.gov.in",
+    "password_hash": "scrypt:32768:8:1$HbAdUmFPbF91ieo5$eebb24955264e63b40844d479a8201ed7bf0b08ca7ccb7498df16d4ea5fd73d78edeb2ec61f27d7a96f671d2707a95867bc2230d93f9bbdc623aa555e5fd7e72",
+    "org": "CPWD",
+    "designation": "Assistant Engineer",
+    "role": "Procurement Officer",
+    "status": "Active",
+    "created_at": "2026-09-19T21:14:55.620835"
+  }
+]
